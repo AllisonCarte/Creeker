@@ -1,4 +1,4 @@
-﻿namespace Creeker.Repositories.Choice
+﻿namespace Creeker.Repositories
 {
     public class ChoiceRepository
     {

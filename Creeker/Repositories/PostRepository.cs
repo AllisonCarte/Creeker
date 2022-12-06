@@ -1,4 +1,4 @@
-﻿namespace Creeker.Repositories.Post
+﻿namespace Creeker.Repositories
 {
     public class PostRepository
     {
