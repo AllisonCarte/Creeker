@@ -36,7 +36,7 @@ namespace Creeker
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<UserRepository>();
             services.AddTransient<PostRepository>();
-            services.AddTransient<TagRepository>();
+            services.AddTransient<ITagRepository, TagRepository>();
             services.AddTransient<QuestionRepository>();
             services.AddTransient<ChoiceRepository>();
 

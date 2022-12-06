@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Creeker.Models;
 using Creeker.Utils;
+using System.Security.Cryptography;
 
 namespace Creeker.Repositories
 {
@@ -34,6 +35,35 @@ namespace Creeker.Repositories
                 }
             }
         }
+
+        public Category GetCategory(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+
+                    cmd.CommandText = "SELECT Id, Name FROM Category WHERE Id = @id";
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    var reader = cmd.ExecuteReader();
+
+                    Category category = null; 
+                   if (reader.Read())
+                    {
+                        category = new()
+                        {
+                            Id = DbUtils.GetInt(reader, "Id"),
+                            Name = DbUtils.GetString(reader, "Name")
+                        };
+                    }
+                    reader.Close();
+                    return category;
+                }
+            }
+        }
+
 
         public void AddCategory(Category category)
         {
