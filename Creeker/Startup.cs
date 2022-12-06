@@ -29,7 +29,7 @@ namespace Creeker
             });
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<PostRepository>();
+            services.AddTransient<IPostRepository, PostRepository>();
             services.AddTransient<ITagRepository, TagRepository>();
             services.AddTransient<QuestionRepository>();
             services.AddTransient<ChoiceRepository>();

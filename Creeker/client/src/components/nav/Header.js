@@ -8,7 +8,11 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from 'reactstrap';
 
 export default function Header({ isLoggedIn, setIsLoggedIn }) {
@@ -41,13 +45,24 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
                 <NavLink tag={RRNavLink} to="/contact">Contact</NavLink>
               </NavItem>
             }
-            {isLoggedIn &&
+             {isLoggedIn &&
               <NavItem>
-                <NavLink tag={RRNavLink} to="/users">Users</NavLink>
+                <NavLink tag={RRNavLink} to="/posts">Posts</NavLink>
               </NavItem>
             }
           </Nav>
           <Nav navbar>
+            {isLoggedIn &&
+               <UncontrolledDropdown nav inNavbar>
+               <DropdownToggle nav caret>
+                 Admin
+               </DropdownToggle>
+               <DropdownMenu right>
+                 <DropdownItem><NavLink tag={RRNavLink} to="/users">Profiles</NavLink></DropdownItem>
+                 <DropdownItem><NavLink tag={RRNavLink} to="/quarantine">Quarantine</NavLink></DropdownItem>
+               </DropdownMenu>
+             </UncontrolledDropdown>
+            }
             {isLoggedIn &&
               <>
                 <NavItem>
