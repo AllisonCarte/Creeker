@@ -1,4 +1,4 @@
-﻿namespace Creeker.Repositories.Question
+﻿namespace Creeker.Repositories
 {
     public class QuestionRepository
     {

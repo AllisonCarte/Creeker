@@ -1,3 +1,4 @@
+using Creeker.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,17 @@ namespace Creeker
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Creeker", Version = "v1" });
             });
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<UserRepository>();
+            services.AddTransient<PostRepository>();
+            services.AddTransient<TagRepository>();
+            services.AddTransient<QuestionRepository>();
+            services.AddTransient<ChoiceRepository>();
+
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

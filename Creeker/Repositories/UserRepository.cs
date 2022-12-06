@@ -1,4 +1,4 @@
-﻿namespace Creeker.Repositories.User
+﻿namespace Creeker.Repositories
 {
     public class UserRepository
     {
