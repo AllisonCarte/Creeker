@@ -1,17 +1,11 @@
 using Creeker.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Creeker
 {
@@ -34,7 +28,7 @@ namespace Creeker
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Creeker", Version = "v1" });
             });
             services.AddTransient<ICategoryRepository, CategoryRepository>();
-            services.AddTransient<UserRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<PostRepository>();
             services.AddTransient<ITagRepository, TagRepository>();
             services.AddTransient<QuestionRepository>();
