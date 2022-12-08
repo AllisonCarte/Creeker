@@ -27,6 +27,11 @@ export const getAllUsers = () => {
         localStorage.clear()
   };
   
+  export const getSingleUser = (id) => {
+    return fetch(`https://localhost:5001/api/User/${id}`)// http GET request or `/api/userProfile/${id}`
+      .then((res) => res.json())
+  };    
+
   export const getCurrentUser = () => {
     const currentUser = localStorage.getItem("user");
 
