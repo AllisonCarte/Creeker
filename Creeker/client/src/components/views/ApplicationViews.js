@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes} from "react-router-dom";
+import { Register } from "../auth/register";
 import Hello from "../Hello";
 import About from "../Home/About";
 import Contact from "../Home/Contact";
@@ -17,6 +18,7 @@ export default function ApplicationViews() {
       <Route path="/user/:id" element={<UserDetails/>}/>
       {/* <Route path="/user/edit/:id" element={<UserProfileEdit/>}/> */}
       <Route path="/posts" element={<ApprovedPostList/>}/>
+      <Route path="/register" element={<Register />} />
       </Routes>
   );
 
