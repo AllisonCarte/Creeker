@@ -46,7 +46,7 @@ namespace Creeker.Repositories
                             Content = DbUtils.GetString(reader, "Content"),
                             ImageLocation = DbUtils.GetString(reader, "ImageLocation"),
                             CreateDateTime = DbUtils.GetDateTime(reader, "CreateDateTime"),
-                            PublishDateTime = (System.DateTime)DbUtils.GetNullableDateTime(reader, "PublishDateTime"),
+                            PublishDateTime = (DateTime)DbUtils.GetNullableDateTime(reader, "PublishDateTime"),
                             IsApproved = reader.GetBoolean(reader.GetOrdinal("IsApproved")),
                             CategoryId = DbUtils.GetInt(reader, "CategoryId"),
                             UserId = DbUtils.GetInt(reader, "UserId"),

@@ -20,7 +20,11 @@ namespace Creeker.Controllers
         {
             return Ok(_postRepository.GetAllApprovedPosts());
         }
-
+        [HttpGet("Unapproved")]
+        public IActionResult GetUnapproved()
+        {
+            return Ok(_postRepository.GetAllUnapprovedPosts());
+        }
         //// GET api/<PostController>/5
         //[HttpGet("{id}")]
         //public string Get(int id)
