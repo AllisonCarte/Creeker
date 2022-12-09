@@ -1,23 +1,23 @@
-import React, {useEffect, useState} from "react";
-import { getAllUsers } from "../../modules/UserManager";
-import User from "./user";
+import React, { useEffect, useState } from 'react'
+import { getAllUsers } from '../../modules/UserManager'
+import User from './user'
 const UserList = () => {
-    const [Users, setUsers] = useState([]);
+  const [Users, setUsers] = useState([])
 
-    const getUsers = () => {
-        getAllUsers().then(u => setUsers(u));
-    }
+  const getUsers = () => {
+    getAllUsers().then((u) => setUsers(u))
+  }
 
-useEffect(() => {
-    getUsers();
-}, [])
+  useEffect(() => {
+    getUsers()
+  }, [])
 
-return (
+  return (
     <>
-     {Users.map((u) => (
-                  <User key={u.id} UserObject={u} />
-                  ))}
+      {Users.map((u) => (
+        <User key={u.id} UserObject={u} />
+      ))}
     </>
-)
+  )
 }
-export default UserList;
+export default UserList
