@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes} from "react-router-dom";
 import { Register } from "../auth/register";
+import CategoryForm from "../categories/categoryForm";
 import CategoryList from "../categories/categoryList";
 import Hello from "../Hello";
 import About from "../Home/About";
@@ -24,6 +25,7 @@ export default function ApplicationViews() {
       <Route path="/quarantine" element={<UnapprovedPostList/>}/>
       
       <Route path="/categories" element={<CategoryList/>}/>
+      <Route path="/categories/create" element={<CategoryForm/>}/>
       
       
       </Routes>
