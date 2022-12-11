@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes} from "react-router-dom";
 import { Register } from "../auth/register";
+import CategoryDelete from "../categories/categoryDelete";
 import CategoryForm from "../categories/categoryForm";
 import CategoryList from "../categories/categoryList";
 import Hello from "../Hello";
@@ -24,8 +25,12 @@ export default function ApplicationViews() {
       <Route path="/register" element={<Register />} />
       <Route path="/quarantine" element={<UnapprovedPostList/>}/>
       
+
+
+      
       <Route path="/categories" element={<CategoryList/>}/>
       <Route path="/categories/create" element={<CategoryForm/>}/>
+      <Route path="/categories/delete/:id" element={<CategoryDelete/>}/>
       
       
       </Routes>

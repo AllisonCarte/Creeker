@@ -15,12 +15,14 @@ const CategoryList = () => {
 
   return (
     <>
+<div style={{marginBottom: "4.5rem"}}>
 
         <Canvas/>
       {Categories.map((u) => (
         <Category key={u.id} categoryObject={u} />
         ))}
 
+        </div>
 
     </>
   )
