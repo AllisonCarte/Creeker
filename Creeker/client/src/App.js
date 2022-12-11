@@ -4,7 +4,6 @@ import ApplicationViews from "./components/views/ApplicationViews";
 import Header from './components/nav/Header';
 import { useEffect } from 'react';
 import Authorize from './components/views/Authorize';
-import Footer from './components/nav/Footer';
 
 function App() {
   const [ isLoggedIn, setIsLoggedIn ] = useState(true);
@@ -25,7 +24,6 @@ function App() {
         :
         <Authorize setIsLoggedIn={setIsLoggedIn}/>
         }
-        <Footer isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
 
     </Router>
   );
