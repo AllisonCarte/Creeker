@@ -8,6 +8,7 @@ import CategoryList from "../categories/categoryList";
 import Hello from "../Hello";
 import About from "../Home/About";
 import Contact from "../Home/Contact";
+import PostDelete from "../posts/postDelete";
 import PostForm from "../posts/postForm";
 import ApprovedPostList from "../posts/postList";
 import UnapprovedPostList from "../posts/postQuarantine";
@@ -31,6 +32,7 @@ export default function ApplicationViews() {
      
       <Route path="/posts" element={<ApprovedPostList/>}/>
       <Route path="/posts/create" element={<PostForm/>}/>
+      <Route path="/posts/delete/:id" element={<PostDelete/>}/>
       <Route path="/quarantine" element={<UnapprovedPostList/>}/>
 
       <Route path="/categories" element={<CategoryList/>}/>
