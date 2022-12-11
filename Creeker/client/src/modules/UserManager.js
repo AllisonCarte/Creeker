@@ -37,3 +37,17 @@ export const getAllUsers = () => {
 
     return JSON.parse(currentUser);  //JSON.parse()  the local user object coming back from API to use properties of that object
   };
+
+  export const register = (userObject) => {
+    return  fetch(`${apiUrl}/api/User`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userObject),
+    })
+    .then((response) => response.json())
+      .then((userObject) => {
+        localStorage.setItem("user", JSON.stringify(userObject))
+      });
+  };
