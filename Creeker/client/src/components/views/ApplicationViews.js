@@ -9,6 +9,7 @@ import Hello from "../Hello";
 import About from "../Home/About";
 import Contact from "../Home/Contact";
 import PostDelete from "../posts/postDelete";
+import PostEdit from "../posts/postEdit";
 import PostForm from "../posts/postForm";
 import ApprovedPostList from "../posts/postList";
 import UnapprovedPostList from "../posts/postQuarantine";
@@ -32,6 +33,7 @@ export default function ApplicationViews() {
      
       <Route path="/posts" element={<ApprovedPostList/>}/>
       <Route path="/posts/create" element={<PostForm/>}/>
+      <Route path="/posts/edit/:id" element={<PostEdit/>}/>
       <Route path="/posts/delete/:id" element={<PostDelete/>}/>
       <Route path="/quarantine" element={<UnapprovedPostList/>}/>
 
