@@ -123,6 +123,35 @@ namespace Creeker.Repositories
         }
         // unapproved ends here
 
+        public void Add(Post post)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        INSERT INTO Post (
+                            Title, Content, ImageLocation, CreateDateTime, PublishDateTime,
+                            IsApproved, CategoryId, UserId )
+                        OUTPUT INSERTED.ID
+                        VALUES (
+                            @Title, @Content, @ImageLocation, @CreateDateTime, @PublishDateTime,
+                            @IsApproved, @CategoryId, @UserId )";
+                    cmd.Parameters.AddWithValue("@Title", post.Title);
+                    cmd.Parameters.AddWithValue("@Content", post.Content);
+                    cmd.Parameters.AddWithValue("@ImageLocation", post.ImageLocation = "");
+                    cmd.Parameters.AddWithValue("@CreateDateTime", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@PublishDateTime", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@IsApproved", post.IsApproved = false);
+                    cmd.Parameters.AddWithValue("@CategoryId", post.CategoryId);
+                    cmd.Parameters.AddWithValue("@UserId", post.UserId);
+
+                    post.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
 
     }
 }

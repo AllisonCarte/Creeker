@@ -8,6 +8,7 @@ import CategoryList from "../categories/categoryList";
 import Hello from "../Hello";
 import About from "../Home/About";
 import Contact from "../Home/Contact";
+import PostForm from "../posts/postForm";
 import ApprovedPostList from "../posts/postList";
 import UnapprovedPostList from "../posts/postQuarantine";
 import TagDelete from "../tags/tagDelete";
@@ -21,23 +22,22 @@ export default function ApplicationViews() {
   return (
     <Routes>
       <Route path="/" element={<Hello />} />
-      <Route path="/about" element={<About/>} />
-      <Route path="/contact" element={<Contact/>} />
+      <Route path="/register" element={<Register />} />
       <Route path="/users" element={<UserList/>} />
       <Route path="/user/:id" element={<UserDetails/>}/>
       {/* <Route path="/user/edit/:id" element={<UserProfileEdit/>}/> */}
+      <Route path="/about" element={<About/>} />
+      <Route path="/contact" element={<Contact/>} />
+     
       <Route path="/posts" element={<ApprovedPostList/>}/>
-      <Route path="/register" element={<Register />} />
+      <Route path="/posts/create" element={<PostForm/>}/>
       <Route path="/quarantine" element={<UnapprovedPostList/>}/>
-      
 
-
-      
       <Route path="/categories" element={<CategoryList/>}/>
       <Route path="/categories/create" element={<CategoryForm/>}/>
       <Route path="/categories/delete/:id" element={<CategoryDelete/>}/>
       <Route path="/categories/edit/:id" element={<CategoryEdit/>}/>
-      
+
       <Route path="/tags" element={<TagList/>}/>
       <Route path="/tags/create" element={<TagForm/>}/>
       <Route path="/tags/delete/:id" element={<TagDelete/>}/>

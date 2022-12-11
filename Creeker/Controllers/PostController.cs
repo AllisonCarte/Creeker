@@ -1,4 +1,5 @@
-﻿using Creeker.Repositories;
+﻿using Creeker.Models;
+using Creeker.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -32,11 +33,13 @@ namespace Creeker.Controllers
         //    return "value";
         //}
 
-        //// POST api/<PostController>
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
+        // POST api/<PostController>
+        [HttpPost]
+        public IActionResult Post(Post post)
+        {
+            _postRepository.Add(post);
+            return CreatedAtAction("Get", new { id = post.Id }, post);
+        }
 
         //// PUT api/<PostController>/5
         //[HttpPut("{id}")]
