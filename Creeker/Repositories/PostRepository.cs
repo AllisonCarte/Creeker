@@ -4,6 +4,7 @@ using Creeker.Models;
 using Creeker.Utils;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Creeker.Repositories
 {
@@ -27,11 +28,16 @@ namespace Creeker.Repositories
                               u.FirstName, u.LastName, u.UserName, 
                               u.Email, u.CreateDateTime, u.ImageLocation,
                               u.UserTypeId, 
-                              ut.[Name] AS UserTypeName
+                              ut.[Name] AS UserTypeName,
+                              pt.Id as PostTagId, pt.PostId as PostTagPostId, 
+                              pt.TagId as PostTagTagId,
+                              t.Id AS TagId, t.[Name] AS TagName
                               FROM Post p
                               LEFT JOIN Category c ON p.CategoryId = c.id
                               LEFT JOIN [User] u ON p.UserId = u.id
                               LEFT JOIN UserType ut ON u.UserTypeId = ut.id
+                              LEFT JOIN PostTag pt ON pt.PostId = p.Id  
+                              LEFT JOIN Tag t on t.Id = pt.TagId
                               WHERE IsApproved = 1
 ";
                     var reader = cmd.ExecuteReader();
@@ -52,10 +58,20 @@ namespace Creeker.Repositories
                             CategoryId = DbUtils.GetInt(reader, "CategoryId"),
                             UserId = DbUtils.GetInt(reader, "UserId"),
                             User = new User(),
-                            Category = new Category()
+                            Category = new Category(),
+                            Tags = new List<Tag>()
                         };
                         post.User.UserName = DbUtils.GetString(reader, "UserName");
                         post.Category.Name = DbUtils.GetString(reader, "CategoryName");
+                       
+                        if (DbUtils.IsNotDbNull(reader, "TagId") && !post.Tags.Any(x => x.Id == DbUtils.GetNullableInt(reader, "TagId")))
+                        {
+                            post.Tags.Add(new Tag
+                            {
+                                Id = DbUtils.GetInt(reader, "TagId"),
+                                Name = DbUtils.GetString(reader, "TagName"),
+                            });
+                        }
                         posts.Add(post);
                     }
 
@@ -74,7 +90,7 @@ namespace Creeker.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT p.Id, p.Title, p.Content, 
+                          SELECT p.Id, p.Title, p.Content, 
                               p.ImageLocation,
                               p.CreateDateTime, p.PublishDateTime, p.IsApproved,
                               p.CategoryId, p.UserId,
@@ -82,11 +98,16 @@ namespace Creeker.Repositories
                               u.FirstName, u.LastName, u.UserName, 
                               u.Email, u.CreateDateTime, u.ImageLocation,
                               u.UserTypeId, 
-                              ut.[Name] AS UserTypeName
+                              ut.[Name] AS UserTypeName,
+                              pt.Id as PostTagId, pt.PostId as PostTagPostId, 
+                              pt.TagId as PostTagTagId,
+                              t.Id AS TagId, t.[Name] AS TagName
                               FROM Post p
                               LEFT JOIN Category c ON p.CategoryId = c.id
                               LEFT JOIN [User] u ON p.UserId = u.id
                               LEFT JOIN UserType ut ON u.UserTypeId = ut.id
+                              LEFT JOIN PostTag pt ON pt.PostId = p.Id
+                              LEFT JOIN Tag t on t.Id = pt.TagId
                               WHERE p.Id = @id";
                              
                               cmd.Parameters.AddWithValue("@id", id);
@@ -130,10 +151,22 @@ namespace Creeker.Repositories
                                     {
                                         Id = DbUtils.GetInt(reader, "CategoryId"),
                                         Name = DbUtils.GetString(reader, "CategoryName")
-                                    }
+                                    },
+                                       Tags = new List<Tag>()
                             };
                         }
+
+                        if (DbUtils.IsNotDbNull(reader, "TagId") && !post.Tags.Any(x => x.Id == DbUtils.GetNullableInt(reader, "TagId")))
+                        {
+                            post.Tags.Add(new Tag
+                            {
+                                Id = DbUtils.GetInt(reader, "TagId"),
+                                Name = DbUtils.GetString(reader, "TagName"),
+                            });
+                        }
+
                     }    
+
                         reader.Close();
                         return post;
                               
@@ -159,11 +192,16 @@ namespace Creeker.Repositories
                               u.FirstName, u.LastName, u.UserName, 
                               u.Email, u.CreateDateTime, u.ImageLocation AS AvatarImage,
                               u.UserTypeId, 
-                              ut.[Name] AS UserTypeName
+                              ut.[Name] AS UserTypeName,
+                               pt.Id as PostTagId, pt.PostId as PostTagPostId, 
+                              pt.TagId as PostTagTagId,
+                              t.Id AS TagId, t.[Name] AS TagName
                               FROM Post p
                               LEFT JOIN Category c ON p.CategoryId = c.id
                               LEFT JOIN [User] u ON p.UserId = u.id
                               LEFT JOIN UserType ut ON u.UserTypeId = ut.id
+                              LEFT JOIN PostTag pt ON pt.PostId = p.Id
+                              LEFT JOIN Tag t on t.Id = pt.TagId
                               WHERE IsApproved = 0
 ";
                     var reader = cmd.ExecuteReader();
@@ -184,11 +222,23 @@ namespace Creeker.Repositories
                             CategoryId = DbUtils.GetInt(reader, "CategoryId"),
                             UserId = DbUtils.GetInt(reader, "UserId"),
                             User = new User(),
-                            Category = new Category()
+                            Category = new Category(),
+                            Tags = new List<Tag>()
                         };
                         post.User.UserName = DbUtils.GetString(reader, "UserName");
                         post.Category.Name = DbUtils.GetString(reader, "CategoryName");
+                        if (DbUtils.IsNotDbNull(reader, "TagId") && !post.Tags.Any(x => x.Id == DbUtils.GetNullableInt(reader, "TagId")))
+                        {
+                            post.Tags.Add(new Tag
+                            {
+                                Id = DbUtils.GetInt(reader, "TagId"),
+                                Name = DbUtils.GetString(reader, "TagName"),
+                            });
+                        }
+                        
                         posts.Add(post);
+
+
                     }
 
                     reader.Close();
