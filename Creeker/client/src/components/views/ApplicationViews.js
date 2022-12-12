@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes} from "react-router-dom";
 import { Register } from "../auth/register";
+import CategoryList from "../categories/categoryList";
 import Hello from "../Hello";
 import About from "../Home/About";
 import Contact from "../Home/Contact";
@@ -21,6 +22,10 @@ export default function ApplicationViews() {
       <Route path="/posts" element={<ApprovedPostList/>}/>
       <Route path="/register" element={<Register />} />
       <Route path="/quarantine" element={<UnapprovedPostList/>}/>
+      
+      <Route path="/categories" element={<CategoryList/>}/>
+      
+      
       </Routes>
   );
 

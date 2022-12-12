@@ -59,6 +59,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
                </DropdownToggle>
                <DropdownMenu end style={{backgroundColor: "#587D71"}}>
                  <DropdownItem> <NavLink style={{color: "#EEFBF5"}} tag={RRNavLink} to="/users">Profiles</NavLink></DropdownItem>
+                 <DropdownItem> <NavLink style={{color: "#EEFBF5"}} tag={RRNavLink} to="/categories">Categories</NavLink></DropdownItem>
                  <DropdownItem> <NavLink style={{color: "#EEFBF5"}} tag={RRNavLink} to="/quarantine">Quarantine</NavLink></DropdownItem>
                </DropdownMenu>
              </UncontrolledDropdown>
