@@ -6,5 +6,6 @@ namespace Creeker.Repositories
     public interface IPostRepository
     {
         List<Post> GetAllApprovedPosts();
+        List<Post> GetAllUnapprovedPosts();
     }
 }

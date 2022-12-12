@@ -21,45 +21,45 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/">Creeker</NavbarBrand>
+      <Navbar style={{backgroundColor: "#587D71"}} light expand="md">
+        <NavbarBrand style={{color: "#EEFBF5"}} tag={RRNavLink} to="/">Creeker</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             { /* When isLoggedIn === true, we will render the Home link */}
             {isLoggedIn &&
               <NavItem>
-                <NavLink tag={RRNavLink} to="/">Home</NavLink>
+                <NavLink style={{color: "#EEFBF5"}} tag={RRNavLink} to="/">Home</NavLink>
               </NavItem>
               
             }
              { /* When isLoggedIn === true, we will render the Home link */}
             {isLoggedIn &&
               <NavItem>
-                <NavLink tag={RRNavLink} to="/about">About</NavLink>
+                 <NavLink style={{color: "#EEFBF5"}} tag={RRNavLink} to="/about">About</NavLink>
               </NavItem>
               
             }
              {isLoggedIn && 
               <NavItem>
-                <NavLink tag={RRNavLink} to="/contact">Contact</NavLink>
+                 <NavLink style={{color: "#EEFBF5"}} tag={RRNavLink} to="/contact">Contact</NavLink>
               </NavItem>
             }
              {isLoggedIn &&
               <NavItem>
-                <NavLink tag={RRNavLink} to="/posts">Posts</NavLink>
+                 <NavLink style={{color: "#EEFBF5"}} tag={RRNavLink} to="/posts">Posts</NavLink>
               </NavItem>
             }
           </Nav>
           <Nav navbar>
             {isLoggedIn &&
                <UncontrolledDropdown nav inNavbar>
-               <DropdownToggle nav caret>
+               <DropdownToggle style={{color: "#EEFBF5"}} nav caret>
                  Admin
                </DropdownToggle>
-               <DropdownMenu right>
-                 <DropdownItem><NavLink tag={RRNavLink} to="/users">Profiles</NavLink></DropdownItem>
-                 <DropdownItem><NavLink tag={RRNavLink} to="/quarantine">Quarantine</NavLink></DropdownItem>
+               <DropdownMenu end style={{backgroundColor: "#587D71"}}>
+                 <DropdownItem> <NavLink style={{color: "#EEFBF5"}} tag={RRNavLink} to="/users">Profiles</NavLink></DropdownItem>
+                 <DropdownItem> <NavLink style={{color: "#EEFBF5"}} tag={RRNavLink} to="/quarantine">Quarantine</NavLink></DropdownItem>
                </DropdownMenu>
              </UncontrolledDropdown>
             }
@@ -67,7 +67,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
               <>
                 <NavItem>
                   <a aria-current="page" className="nav-link"
-                    style={{ cursor: "pointer" }} onClick={() => {
+                    style={{ color: "#EEFBF5", cursor: "pointer" }} onClick={() => {
                       logout()
                       setIsLoggedIn(false)
                     }}>Logout</a>

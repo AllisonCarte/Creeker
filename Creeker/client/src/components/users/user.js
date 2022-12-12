@@ -7,21 +7,22 @@ import { Card, CardBody, CardSubtitle, CardTitle } from 'reactstrap'
 const User = ({ UserObject }) => {
   return (
     <>
-      <article style={{ display: 'flex', justifyContent: 'center', marginBottom: "2px" }}>
+      <article style={{ display: 'flex', justifyContent: 'center' }}>
         <div>
           <Card
             body
-            color="success"
             inverse
             style={{
+              marginTop: "1.5rem",
+            backgroundColor: "#587D71",
               width: '18rem',
             }}
           >
             <CardBody>
               <CardTitle tag="h5">
-                <Link style={{color: "white"}} to={`/user/${UserObject.id}`}>{UserObject.userName}</Link>
+                <Link style={{color: "#EEFBF5"}} to={`/user/${UserObject.id}`}>{UserObject.userName}</Link>
               </CardTitle>
-              <CardSubtitle className="mb-2" tag="h6">
+              <CardSubtitle style={{color: "#EEFBF5"}} className="mb-2" tag="h6">
                 {UserObject.fullName}
                 <br></br>
                 {UserObject.userType.name}
