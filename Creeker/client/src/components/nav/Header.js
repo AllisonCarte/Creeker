@@ -50,6 +50,11 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
                  <NavLink style={{color: "#EEFBF5"}} tag={RRNavLink} to="/posts">Posts</NavLink>
               </NavItem>
             }
+            {isLoggedIn &&
+              <NavItem>
+                 <NavLink style={{color: "#EEFBF5"}} tag={RRNavLink} to="/user/me">Me</NavLink>
+              </NavItem>
+            }
           </Nav>
           <Nav navbar>
             {isLoggedIn &&

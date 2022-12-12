@@ -2,6 +2,7 @@ import React from "react";
 
 const baseUrl = '/api/User';
 const apiUrl = "https://localhost:5001";
+
 //https://localhost:5001/api/User
 export const getAllUsers = () => {
   return fetch(`${apiUrl}${baseUrl}`)
@@ -26,6 +27,21 @@ export const getAllUsers = () => {
   export const logout = () => {
         localStorage.clear()
   };
+
+  export const editUser = (user) => {
+    return fetch(`${apiUrl}${baseUrl}/${user.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+    .then(getAllUsers)
+}
+
+
+
+
   
   export const getSingleUser = (id) => {
     return fetch(`https://localhost:5001/api/User/${id}`)// http GET request or `/api/userProfile/${id}`
@@ -34,7 +50,6 @@ export const getAllUsers = () => {
 
   export const getCurrentUser = () => {
     const currentUser = localStorage.getItem("user");
-
     return JSON.parse(currentUser);  //JSON.parse()  the local user object coming back from API to use properties of that object
   };
 
