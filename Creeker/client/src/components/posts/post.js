@@ -68,7 +68,7 @@ const Post = ({ PostObject }) => {
               <p></p>
                 {' '}
                 {PostObject.tags.map((t) => (
-                  <Button href={`/postTag/remove/${t.id}`} id="postTagButton">{t.name}</Button>
+                  <Button id="postTagButton">{t.name}</Button>
                 ))}{' '}
               </CardSubtitle>
             </CardBody>
