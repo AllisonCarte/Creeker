@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FaRegEdit, FaRegTrashAlt } from 'react-icons/fa'
+import { FaRegEdit, FaRegTrashAlt, FaTag } from 'react-icons/fa'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import {
   Button,
@@ -64,6 +64,12 @@ const Post = ({ PostObject }) => {
                 href={`/posts/delete/${PostObject.id}`}
               >
                 <FaRegTrashAlt />
+              </CardLink>
+              <CardLink
+                style={{ color: '#EEFBF5', textDecoration: 'none' }}
+                href={`/posts/${PostObject.id}/tags`}
+              >
+                <FaTag />
               </CardLink>
               <p></p>
                 {' '}

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "reactstrap";
-import { addPostTag } from "../../../modules/PostTagManager";
+import { addPostTag, deletePostTag } from "../../../modules/PostTagManager";
 
 export const TagAndButton = ({ tag, id, postTags }) => {
 
@@ -17,7 +17,12 @@ export const TagAndButton = ({ tag, id, postTags }) => {
             navigate(`/posts`)
         });
     }
-
+    const handleDelete = () => {
+        debugger
+        deletePostTag().then((e) => {
+          navigate(`/posts`)
+        })
+      }
   
     return (
 
@@ -28,11 +33,13 @@ export const TagAndButton = ({ tag, id, postTags }) => {
                         {
                         !postTags.some(x => x.tagId === tag.id)
                         ?
-                        <Button  onClick={() => { savePostTag() }}>
+                        <Button style={{backgroundColor: "#587D71", width: "6vw", overflow: "hidden"}} onClick={() => { savePostTag() }}>
                             Add Tag
                         </Button>
                         :
-                        <></>
+                        <Button style={{backgroundColor: "#587D71", width: "6vw", overflow: "hidden"}} >
+                        Added
+                    </Button>
                         }
                     </td>
                 </tbody>
