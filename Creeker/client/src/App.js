@@ -7,6 +7,16 @@ import Authorize from './components/views/Authorize';
 
 function App() {
   const [ isLoggedIn, setIsLoggedIn ] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(true);
+  const localUser = localStorage.getItem('user')
+  const userObject = JSON.parse(localUser)
+ 
+  useEffect(()=>{
+  if(userObject.UserTypeId == 1){
+    setIsAdmin(false)
+    
+  }
+},[isAdmin])
 
 
   useEffect(()=>{
@@ -18,7 +28,7 @@ function App() {
 
   return (
     <Router>
-        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>
         { isLoggedIn ?
         <ApplicationViews  />
         :

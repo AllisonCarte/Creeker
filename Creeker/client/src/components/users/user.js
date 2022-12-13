@@ -1,12 +1,15 @@
 import React from 'react'
+import { FaRegEdit } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { Card, CardBody, CardSubtitle, CardTitle } from 'reactstrap'
+import { Card, CardBody, CardLink, CardSubtitle, CardTitle } from 'reactstrap'
 
 // Still need to add images back to the return after I figure out why they cause 10000 GET requests
 
 const User = ({ UserObject }) => {
-  return (
-    <>
+
+
+    return (
+      <>
       <article style={{ display: 'flex', justifyContent: 'center' }}>
         <div>
           <Card
@@ -14,10 +17,10 @@ const User = ({ UserObject }) => {
             inverse
             style={{
               marginTop: "1.5rem",
-            backgroundColor: "#587D71",
+              backgroundColor: "#587D71",
               width: '18rem',
             }}
-          >
+            >
             <CardBody>
               <CardTitle tag="h5">
                 <Link style={{color: "#EEFBF5"}} to={`/user/${UserObject.id}`}>{UserObject.userName}</Link>
@@ -27,6 +30,7 @@ const User = ({ UserObject }) => {
                 <br></br>
                 {UserObject.userType.name}
               </CardSubtitle>
+              <CardLink style={{color: "#EEFBF5", textDecoration: "none"}} href={`/user/usertype/edit/${UserObject.id}`}><FaRegEdit/></CardLink>
             </CardBody>
           </Card>
         </div>
@@ -34,5 +38,6 @@ const User = ({ UserObject }) => {
     </>
   )
 }
+
 
 export default User
