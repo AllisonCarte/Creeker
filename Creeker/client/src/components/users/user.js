@@ -2,6 +2,7 @@ import React from 'react'
 import { FaRegEdit } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { Card, CardBody, CardLink, CardSubtitle, CardTitle } from 'reactstrap'
+import "./users.css"
 
 // Still need to add images back to the return after I figure out why they cause 10000 GET requests
 
@@ -10,31 +11,35 @@ const User = ({ UserObject }) => {
 
     return (
       <>
-      <article style={{ display: 'flex', justifyContent: 'center' }}>
-        <div>
+      
+      <div className='app'>
+        <div className='grid'>
+          <div className='box'>
           <Card
             body
             inverse
-            style={{
-              marginTop: "1.5rem",
-              backgroundColor: "#587D71",
-              width: '18rem',
-            }}
+            // style={{
+            //   marginTop: "1.5rem",
+            //   backgroundColor: "#587D71",
+            //   width: '18rem',
+            // style={{color: "#EEFBF5"}}
+            // }}
             >
             <CardBody>
               <CardTitle tag="h5">
-                <Link style={{color: "#EEFBF5"}} to={`/user/${UserObject.id}`}>{UserObject.userName}</Link>
+                <Link  to={`/user/${UserObject.id}`}>{UserObject.userName}</Link>
               </CardTitle>
-              <CardSubtitle style={{color: "#EEFBF5"}} className="mb-2" tag="h6">
+              <CardSubtitle  tag="h6">
                 {UserObject.fullName}
                 <br></br>
                 {UserObject.userType.name}
               </CardSubtitle>
-              <CardLink style={{color: "#EEFBF5", textDecoration: "none"}} href={`/user/usertype/edit/${UserObject.id}`}><FaRegEdit/></CardLink>
+              <CardLink href={`/user/usertype/edit/${UserObject.id}`}><FaRegEdit/></CardLink>
             </CardBody>
           </Card>
         </div>
-      </article>
+        </div>
+        /</div>
     </>
   )
 }
