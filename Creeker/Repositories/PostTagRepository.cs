@@ -65,7 +65,7 @@ namespace Creeker.Repositories
             }
         }
 
-        public List<PostTag> GetAllPostTagsByPostTagId(int id)
+        public PostTag GetAllPostTagsByPostTagId(int id)
         {
             using (var conn = Connection)
             {
@@ -79,19 +79,24 @@ namespace Creeker.Repositories
 
                     var reader = cmd.ExecuteReader();
 
-                    List<PostTag> postTags = new List<PostTag>();
+                    PostTag postTags = null;
 
                     while (reader.Read())
                     {
-                        postTags.Add(new PostTag()
+                        if (postTags == null)
                         {
-                            Id = reader.GetInt32(reader.GetOrdinal("PostTagId")),
-                            PostId = reader.GetInt32(reader.GetOrdinal("PostId")),
-                            TagId = reader.GetInt32(reader.GetOrdinal("TagId")),
+
+                            postTags = new PostTag()
+                            {
+                                Id = reader.GetInt32(reader.GetOrdinal("PostTagId")),
+                                PostId = reader.GetInt32(reader.GetOrdinal("PostId")),
+                                TagId = reader.GetInt32(reader.GetOrdinal("TagId")),
 
 
-                        });
-                    }
+                            };
+                        } 
+                    } 
+                        
                     reader.Close();
                     return postTags;
                 }

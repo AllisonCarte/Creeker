@@ -4,23 +4,25 @@ import { Button, Card, CardBody, CardSubtitle, CardTitle } from 'reactstrap'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import { deletePostTag, getPostTagsByPTId } from '../../../modules/PostTagManager'
 const PostTagDelete = () => {
-  const [PT, setPT] = useState()
+  const [PT, setPT] = useState({})
 
   const navigate = useNavigate()
   const { id } = useParams()
 
   useEffect(() => {
     getPostTagsByPTId(id).then((c) => {
-      setPT(c[0])
+      setPT(c)
+      
     })
   }, [])
-
+console.log(PT)
   const handleDelete = () => {
     debugger
     deletePostTag(id).then((e) => {
       navigate(`/posts`)
     })
   }
+  console.log(id)
   const handleCancel = () => {
     navigate(`/posts`)
   }

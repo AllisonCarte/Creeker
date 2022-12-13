@@ -8,6 +8,6 @@ namespace Creeker.Repositories
         void AddPostTag(PostTag postTag);
         void DeletePostTag(int id);
         List<PostTag> GetAllPostTagsByPostId(int id);
-        List<PostTag> GetAllPostTagsByPostTagId(int id);
+        PostTag GetAllPostTagsByPostTagId(int id);
     }
 }

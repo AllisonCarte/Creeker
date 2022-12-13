@@ -28,6 +28,11 @@ namespace Creeker.Controllers
         [HttpGet("PT/{id}")]
         public IActionResult GetAllPostTagsByPostTagId(int id)
         {
+            var pt = _postTagRepository.GetAllPostTagsByPostTagId(id);
+            if (pt == null)
+            {
+                return NotFound();
+            }
             return Ok(_postTagRepository.GetAllPostTagsByPostTagId(id));
         }
 
