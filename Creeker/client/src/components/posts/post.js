@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaRegEdit, FaRegTrashAlt } from 'react-icons/fa'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import {
   Button,
   Card,
@@ -16,10 +16,12 @@ import './postTag.css'
 const Post = ({ PostObject }) => {
   const [tag, setTags] = useState()
   const { id } = useParams
-
+  const navigate = useNavigate()
   useEffect(() => {
     getAllTags(id).then(setTags)
   })
+
+ 
 
   return (
     <>
@@ -66,7 +68,7 @@ const Post = ({ PostObject }) => {
               <p></p>
                 {' '}
                 {PostObject.tags.map((t) => (
-                  <Button id="postTagButton">{t.name}</Button>
+                  <Button href={`/postTag/remove/${t.id}`} id="postTagButton">{t.name}</Button>
                 ))}{' '}
               </CardSubtitle>
             </CardBody>

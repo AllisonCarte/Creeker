@@ -13,6 +13,8 @@ import PostEdit from "../posts/postEdit";
 import PostForm from "../posts/postForm";
 import ApprovedPostList from "../posts/postList";
 import UnapprovedPostList from "../posts/postQuarantine";
+import PostTagDelete from "../posts/PostTag/postTagDelete";
+import { PostTags } from "../posts/PostTag/postTagList";
 import TagDelete from "../tags/tagDelete";
 import TagEdit from "../tags/tagEdit";
 import TagForm from "../tags/tagForm";
@@ -40,6 +42,8 @@ export default function ApplicationViews() {
       <Route path="/posts/edit/:id" element={<PostEdit/>}/>
       <Route path="/posts/delete/:id" element={<PostDelete/>}/>
       <Route path="/quarantine" element={<UnapprovedPostList/>}/>
+      <Route path="/postTag/remove/:id" element={<PostTagDelete/>}/>
+      <Route path ="/posts/:id/tags" element={<PostTags />} />
 
       <Route path="/categories" element={<CategoryList/>}/>
       <Route path="/categories/create" element={<CategoryForm/>}/>
