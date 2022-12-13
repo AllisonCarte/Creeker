@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Button, Card, CardBody, CardSubtitle, CardTitle } from 'reactstrap'
 import { FaCheck, FaTimes } from 'react-icons/fa'
-import { deletePostTag, getPostTagsByPTId } from '../../modules/PostTagManager'
+import { deletePostTag, getPostTagsByPTId } from '../../../modules/PostTagManager'
 const PostTagDelete = () => {
   const [PT, setPT] = useState()
 
