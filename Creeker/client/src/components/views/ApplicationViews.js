@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes} from "react-router-dom";
 import { Register } from "../auth/register";
 import CategoryDelete from "../categories/categoryDelete";
+import CategoryEdit from "../categories/categoryEdit";
 import CategoryForm from "../categories/categoryForm";
 import CategoryList from "../categories/categoryList";
 import Hello from "../Hello";
@@ -31,6 +32,7 @@ export default function ApplicationViews() {
       <Route path="/categories" element={<CategoryList/>}/>
       <Route path="/categories/create" element={<CategoryForm/>}/>
       <Route path="/categories/delete/:id" element={<CategoryDelete/>}/>
+      <Route path="/categories/edit/:id" element={<CategoryEdit/>}/>
       
       
       </Routes>

@@ -50,6 +50,17 @@ export const getById = (id) => {
     .then((res) => res.json());
 }
 
+export const editCategory = (category) => {
+    return fetch(`${apiUrl}${baseUrl}/${category.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(category)
+    })
+    .then(getCategories)
+}
+
 
 export const addCategory = (category) => {
     return fetch(`${apiUrl}${baseUrl}`, {
@@ -59,6 +70,7 @@ export const addCategory = (category) => {
         },
         body: JSON.stringify(category),
         })
+        
 }
 
 export const getCategories = () => {
