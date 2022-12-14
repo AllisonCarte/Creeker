@@ -228,6 +228,39 @@ namespace Creeker.Repositories
             }
         }
 
+        public void EditPost(Post post)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                            UPDATE Post
+                                    SET
+                                          Title = @title,
+                                          Content = @content,
+                                          ImageLocation = @imageLocation,
+                                          CategoryId = @categoryId,
+                                          IsApproved = @isApproved
+                                    WHERE Id = @id";
+
+                    cmd.Parameters.AddWithValue("@title", post.Title);
+                    cmd.Parameters.AddWithValue("@content", post.Content);
+                    cmd.Parameters.AddWithValue("@imageLocation", post.ImageLocation = "");
+                    cmd.Parameters.AddWithValue("@categoryId", post.CategoryId);
+                    cmd.Parameters.AddWithValue("@isApproved", post.IsApproved);
+                    cmd.Parameters.AddWithValue("@id", post.Id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
+
+
 
         public void DeletePost(int id)
         {

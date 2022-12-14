@@ -27,6 +27,20 @@ export const getPostById = (id) => {
     .then((res) => res.json());
 }
 
+export const editPost = (post) => {
+    return fetch(`${apiUrl}${baseUrl}/${post.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(post)
+    })
+    .then(getAllApprovedPosts)
+    .then(getAllUnapprovedPosts)
+}
+
+
+
 export const deletePost = (id) => {
     return fetch(`${apiUrl}${baseUrl}/${id}`, {
       method: "DELETE"

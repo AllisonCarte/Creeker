@@ -46,11 +46,17 @@ namespace Creeker.Controllers
             return CreatedAtAction("Get", new { id = post.Id }, post);
         }
 
-        //// PUT api/<PostController>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
+        // PUT api/<PostController>/5
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Post post)
+        {
+            if (id != post.Id)
+            {
+                return BadRequest();
+            }
+            _postRepository.EditPost(post);
+            return NoContent();
+        }
 
         // DELETE api/<PostController>/5
         [HttpDelete("{id}")]
