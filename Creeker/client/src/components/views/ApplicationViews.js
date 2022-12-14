@@ -10,6 +10,10 @@ import About from "../Home/About";
 import Contact from "../Home/Contact";
 import ApprovedPostList from "../posts/postList";
 import UnapprovedPostList from "../posts/postQuarantine";
+import TagDelete from "../tags/tagDelete";
+import TagEdit from "../tags/tagEdit";
+import TagForm from "../tags/tagForm";
+import TagList from "../tags/tagList";
 import UserDetails from "../users/userDetails";
 import UserList from "../users/userList";
 export default function ApplicationViews() {
@@ -34,6 +38,11 @@ export default function ApplicationViews() {
       <Route path="/categories/delete/:id" element={<CategoryDelete/>}/>
       <Route path="/categories/edit/:id" element={<CategoryEdit/>}/>
       
+      <Route path="/tags" element={<TagList/>}/>
+      <Route path="/tags/create" element={<TagForm/>}/>
+      <Route path="/tags/delete/:id" element={<TagDelete/>}/>
+      <Route path="/tags/edit/:id" element={<TagEdit/>}/>
+
       
       </Routes>
   );

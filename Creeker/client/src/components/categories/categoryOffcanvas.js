@@ -32,7 +32,6 @@ const Canvas = (args) => {
                 to={item.path}
                 key={index}
                 className="link"
-                activeclassName="active"
               >
                 <div className="link_icon" style={{color: "#EEFBF5"}}>{item.icon}</div>
                 <div className="link_text" style={{color: "#EEFBF5"}}>{item.name}</div>

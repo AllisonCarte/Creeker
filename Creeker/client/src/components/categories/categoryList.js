@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getCategories } from '../../modules/CategoryManager'
 import Category from './category'
-import Canvas from '../nav/Offcanvas'
+import Canvas from './categoryOffcanvas'
 const CategoryList = () => {
   const [Categories, setCategories] = useState([])
 
