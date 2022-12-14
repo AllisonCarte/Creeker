@@ -6,22 +6,18 @@ export const getAllApprovedPosts = () => {
     .then((response) => response.json())
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export const getAllUnapprovedPosts = () => {
     return fetch(`${apiUrl}${baseUrl}/Unapproved`)
     .then((response) => response.json())
 };
+
+export const addPost = (post) => {
+    return fetch(`${apiUrl}${baseUrl}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(post),
+        })
+        
+}
