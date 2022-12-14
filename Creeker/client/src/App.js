@@ -24,6 +24,7 @@ function App() {
         :
         <Authorize setIsLoggedIn={setIsLoggedIn}/>
         }
+
     </Router>
   );
 }
