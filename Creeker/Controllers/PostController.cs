@@ -26,12 +26,17 @@ namespace Creeker.Controllers
         {
             return Ok(_postRepository.GetAllUnapprovedPosts());
         }
-        //// GET api/<PostController>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        // GET api/<PostController>/5
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var post = _postRepository.GetPostById(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return Ok(post);
+        }
 
         // POST api/<PostController>
         [HttpPost]
@@ -47,10 +52,12 @@ namespace Creeker.Controllers
         //{
         //}
 
-        //// DELETE api/<PostController>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+        // DELETE api/<PostController>/5
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _postRepository.DeletePost(id);
+            return NoContent();
+        }
     }
 }

@@ -21,3 +21,14 @@ export const addPost = (post) => {
         })
         
 }
+
+export const getPostById = (id) => {
+    return fetch(`${apiUrl}${baseUrl}/${id}`)
+    .then((res) => res.json());
+}
+
+export const deletePost = (id) => {
+    return fetch(`${apiUrl}${baseUrl}/${id}`, {
+      method: "DELETE"
+    })
+  }
