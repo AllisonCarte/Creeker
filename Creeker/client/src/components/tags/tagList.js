@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { getAllTags } from '../../modules/TagManager'
 import Tag from './tag'
 import Canvas from './tagOffcanvas'
+import './tags.css';
+
 const TagList = () => {
   const [Tags, setTags] = useState([])
 
@@ -15,14 +17,18 @@ const TagList = () => {
 
   return (
     <>
-<div style={{marginBottom: "4.5rem"}}>
-
-        <Canvas/>
+    
+<div className='' id='taco'>
+<div >
       {Tags.map((t) => (
         <Tag key={t.id} tagObject={t} />
         ))}
 
         </div>
+        <aside >
+        <Canvas/>
+        </aside>
+    </div>
 
     </>
   )

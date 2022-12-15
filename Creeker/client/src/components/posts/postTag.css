@@ -1,0 +1,9 @@
+#postTagButton:hover {
+    background-color: #4F6960;
+    transition: 0.7s;
+  }
+
+#postTagButton{
+    border-color: #DFF8EB;
+    background-color: transparent;
+}
