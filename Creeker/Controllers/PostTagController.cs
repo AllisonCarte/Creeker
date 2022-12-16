@@ -24,12 +24,24 @@ namespace Creeker.Controllers
                 return Ok(_postTagRepository.GetAllPostTagsByPostId(id));
             }
 
+
+        [HttpGet("PT/{id}")]
+        public IActionResult GetAllPostTagsByPostTagId(int id)
+        {
+            var pt = _postTagRepository.GetAllPostTagsByPostTagId(id);
+            if (pt == null)
+            {
+                return NotFound();
+            }
+            return Ok(_postTagRepository.GetAllPostTagsByPostTagId(id));
+        }
+
         // POST api/<PostTagController>
         [HttpPost]
         public IActionResult Post(PostTag postTag)
         {
             _postTagRepository.AddPostTag(postTag);
-            return CreatedAtAction("Get", new { id = postTag.Id }, postTag);
+            return CreatedAtAction(nameof(GetAllPostTagsByPostId), new { id = postTag.Id }, postTag);
         }
 
         //// PUT api/<PostTagController>/5
@@ -38,10 +50,12 @@ namespace Creeker.Controllers
         //{
         //}
 
-        //// DELETE api/<PostTagController>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+        // DELETE api/<PostTagController>/5
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _postTagRepository.DeletePostTag(id);
+            return NoContent();
+        }
     }
 }
