@@ -10,6 +10,7 @@ namespace Creeker.Repositories
         List<User> GetAllUsers();
         User GetUser(int id);
         User GetUserByLogin(string email, string password);
+        void UpdateActiveType(User user);
         void UpdateUser(User user);
     }
 }

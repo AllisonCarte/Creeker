@@ -74,5 +74,20 @@ namespace Creeker.Controllers
             _userRepository.DeleteUser(id);
             return NoContent();
         }
+
+
+        [HttpPut("UA/{id}")]
+        public IActionResult UpdateActiveTypeUser(int id, User user)
+        {
+            if (id != user.Id) 
+            {
+                return BadRequest();
+            }
+            _userRepository.UpdateActiveType(user);
+            return Ok(user);
+        }
+
+
+
     }
 }

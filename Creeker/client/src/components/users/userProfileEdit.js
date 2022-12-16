@@ -13,6 +13,7 @@ import {
 } from 'reactstrap'
 import { editUser, getSingleUser } from '../../modules/UserManager'
 
+
 const UserEdit = () => {
   const [User, setUser] = useState({})
   const navigate = useNavigate()

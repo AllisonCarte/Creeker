@@ -1,5 +1,6 @@
 ﻿using Creeker.Models;
 using Creeker.Utils;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -108,6 +109,33 @@ namespace Creeker.Repositories
             }
 
         }
+
+        public void UpdateActiveType(User user)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                            UPDATE [user]
+                            SET 
+                                IsActive = @isActive, UserTypeId = @userTypeId
+                            WHERE Id = @id";
+
+                    cmd.Parameters.AddWithValue("@isActive", user.IsActive);
+                    cmd.Parameters.AddWithValue("@id", user.Id);
+                    cmd.Parameters.AddWithValue("@userTypeId", user.UserTypeId);
+
+
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
 
         public User GetUserByLogin(string email, string password)
         {

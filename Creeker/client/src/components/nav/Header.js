@@ -15,7 +15,7 @@ import {
   DropdownItem
 } from 'reactstrap';
 
-export default function Header({ isLoggedIn, setIsLoggedIn }) {
+export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -57,7 +57,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
             }
           </Nav>
           <Nav navbar>
-            {isLoggedIn &&
+            {isLoggedIn && isAdmin &&
                <UncontrolledDropdown nav inNavbar>
                <DropdownToggle style={{color: "#EEFBF5"}} nav caret>
                  Admin

@@ -21,6 +21,7 @@ import PersonalProfile from "../users/personalProfile";
 import UserDetails from "../users/userDetails";
 import UserList from "../users/userList";
 import UserEdit from "../users/userProfileEdit";
+import EditUserType from "../users/userTypeEdit";
 export default function ApplicationViews() {
 
   return (
@@ -33,6 +34,7 @@ export default function ApplicationViews() {
       <Route path="/about" element={<About/>} />
       <Route path="/contact" element={<Contact/>} />
       <Route path="/user/edit/:id" element={<UserEdit/>}/>
+      <Route path="/user/usertype/edit/:id" element={<EditUserType/>}/>
 
      
       <Route path="/posts" element={<ApprovedPostList/>}/>
