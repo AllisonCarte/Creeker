@@ -1,0 +1,62 @@
+/* .app{
+
+}
+.grid{
+min-height: 100%;
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: space-around;
+}
+
+.box{
+    background-color: #567968;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    height: 200px;
+    max-height: 35vh;
+   box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.3);
+}
+
+.grid > div{
+    flex-basis: calc(20% - 40px);
+} */
+
+@font-face {
+    font-family: 'Reenie Beanie';
+    src: local('Reenie Beanie'), url(C:\Users\carte\source\repos\Creeker\Creeker\client\src\components\fonts\ReenieBeanie-Regular.ttf) format('TrueType');
+}
+   
+  h2 {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .enchilada {
+    font-family: 'Reenie Beanie';
+    font-size: 2rem;
+    white-space:break-spaces;
+    overflow: hidden;
+text-overflow:clip;
+  }
+   
+  .taco, li{
+    list-style:none;
+  }
+  .taco{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .taco li .spicypotatotaco{
+    transform: rotate(-6deg);
+    text-decoration:none;
+    color:#000;
+    background:#8abcac;
+    display:block;
+    height:20em;
+    width:20em;
+    padding:1em;
+  }
+  .taco > li{
+    margin:1em;
+  }

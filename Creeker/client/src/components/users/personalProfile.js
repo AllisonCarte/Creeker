@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAllUsers} from '../../modules/UserManager'
 import UserProfile from './profile'
-
+import "./profile.css"
 const PersonalProfile = () => {
   const [User, setUser] = useState([])
   const [filteredUser, setFilteredUser] = useState([])

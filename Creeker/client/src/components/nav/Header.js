@@ -23,7 +23,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin 
   return (
     <div>
       <Navbar className='navbarStyling' light expand="md">
-        <NavbarBrand className='navlinkStyling' tag={RRNavLink} to="/">Creeker</NavbarBrand>
+        <NavbarBrand style={{color: '#EEFBF5'}}  tag={RRNavLink} to="/">Creeker</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav  className="ms-auto" navbar>
@@ -34,6 +34,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin 
               </NavItem>
               
             }
+            
              { /* When isLoggedIn === true, we will render the Home link */}
             {isLoggedIn &&
               <NavItem>
@@ -51,26 +52,27 @@ export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin 
                  <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/posts">Posts</NavLink>
               </NavItem>
             }
+                 {isLoggedIn && isAdmin &&
+                    <UncontrolledDropdown nav inNavbar>
+                    <DropdownToggle style={{color: '#EEFBF5'}}nav caret>
+                      Admin
+                    </DropdownToggle>
+                    <DropdownMenu end id='test' style={{ backgroundColor: '#587D71', width: "2vw"}}>
+                     <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/tags">Tags</NavLink></DropdownItem>
+                      <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/users">Profiles</NavLink></DropdownItem>
+                      <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/categories">Categories</NavLink></DropdownItem>
+                      <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/quarantine">Quarantine</NavLink></DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                 }
             {isLoggedIn &&
               <NavItem>
                  <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/user/me">Me</NavLink>
               </NavItem>
             }
+            
           </Nav>
           <Nav navbar>
-            {isLoggedIn && isAdmin &&
-               <UncontrolledDropdown nav inNavbar>
-               <DropdownToggle style={{color: '#EEFBF5'}}nav caret>
-                 Admin
-               </DropdownToggle>
-               <DropdownMenu end className='adminDropdownStyling'>
-                <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/tags">Tags</NavLink></DropdownItem>
-                 <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/users">Profiles</NavLink></DropdownItem>
-                 <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/categories">Categories</NavLink></DropdownItem>
-                 <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/quarantine">Quarantine</NavLink></DropdownItem>
-               </DropdownMenu>
-             </UncontrolledDropdown>
-            }
             {isLoggedIn &&
               <>
                 <NavItem>

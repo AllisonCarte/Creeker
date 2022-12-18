@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom'
 const Canvas = (args) => {
   const [open, setOpen] = useState()
   const toggle = () => setOpen(!open)
-  
   const menuItem = [
     {
       path: '/tags/create',
@@ -35,7 +34,7 @@ const Canvas = (args) => {
         toggle={toggle}
       >
         <OffcanvasHeader style={{ color: '#EEFBF5' }} toggle={toggle}>
-          Tag Options
+          Post Options
         </OffcanvasHeader>
         <OffcanvasBody style={{ width: '88px' }}>
           {menuItem.map((item, index) => (

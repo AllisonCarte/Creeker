@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Reenie Beanie';
+    src: local('Reenie Beanie'), url(C:\Users\carte\source\repos\Creeker\Creeker\client\src\components\fonts\ReenieBeanie-Regular.ttf) format('TrueType');
+}
+   
+  h2 {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .enchilada {
+    font-family: 'Reenie Beanie';
+    font-size: 2rem;
+  }
+   
+  .taco, li{
+    list-style:none;
+  }
+  .taco{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .taco li .spicypotatotaco{
+    transform: rotate(-6deg);
+    text-decoration:none;
+    color:#000;
+    background:#8abcac;
+    display:block;
+    height:10em;
+    width:10em;
+    padding:1em;
+  }
+  .taco > li{
+    margin:1em;
+  }

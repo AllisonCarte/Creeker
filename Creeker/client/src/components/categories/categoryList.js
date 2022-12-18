@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getCategories } from '../../modules/CategoryManager'
 import Category from './category'
 import Canvas from './categoryOffcanvas'
+import "./categories.css"
 const CategoryList = () => {
   const [Categories, setCategories] = useState([])
 
@@ -15,14 +16,14 @@ const CategoryList = () => {
 
   return (
     <>
-<div style={{marginBottom: "4.5rem"}}>
 
         <Canvas/>
+<ul className='taco'>
       {Categories.map((u) => (
         <Category key={u.id} categoryObject={u} />
         ))}
 
-        </div>
+        </ul>
 
     </>
   )

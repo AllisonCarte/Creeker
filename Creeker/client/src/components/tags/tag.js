@@ -6,21 +6,23 @@ import {
   CardSubtitle,
   CardTitle,
 } from 'reactstrap'
+import "./tags.css"
 import { FaRegTrashAlt, FaRegEdit } from 'react-icons/fa'
 // Still need to add images back to the return after I figure out why they cause 10000 GET requests
 
 const Tag = ({ tagObject }) => {
   return (
     <>
-      <article style={{ display: 'flex', justifyContent: 'center' }}>
-        <div >
+      {/* <article style={{ display: 'flex', justifyContent: 'center' }}> */}
+        <div className='box'>
           <Card
             body
             inverse
             style={{
-              marginTop: '1.5rem',
+              // marginTop: '1.5rem',
               backgroundColor: '#587D71',
-              width: '18rem'
+              // width: '18rem'
+              
             }}
           >
             <CardBody>
@@ -35,7 +37,7 @@ const Tag = ({ tagObject }) => {
             </CardBody>
           </Card>
         </div>
-      </article>
+      {/* </article> */}
     </>
   )
 }

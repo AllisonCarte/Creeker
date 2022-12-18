@@ -15,11 +15,11 @@ const UnapprovedPostList = () => {
 
   return (
     <>
-      <div>
+      <ul class="taco">
         {Unapproved.map((u) => (
           <Post key={u.id} PostObject={u} />
-        ))}
-      </div>
+          ))}
+          </ul>
     </>
   )
 }
