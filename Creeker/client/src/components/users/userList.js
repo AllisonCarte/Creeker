@@ -9,7 +9,7 @@ const UserList = () => {
   const [Users, setUsers] = useState([])
 
   const [currentPage, setCurrentPage] = useState(1)
-  const [recordsPerPage] = useState(6)
+  const [recordsPerPage] = useState(4)
   const indexOfLastRecord = currentPage * recordsPerPage
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage
   const currentRecords = Users.slice(indexOfFirstRecord, indexOfLastRecord)
@@ -25,13 +25,11 @@ const UserList = () => {
 
   return (
     <>
-      <div className="app">
-        <div className="grid">
+         <ul class="tagCards">
           {currentRecords.map((u) => (
             <User key={u.id} UserObject={u} Users={currentRecords} />
-          ))}
-        </div>
-      </div>
+            ))}
+           </ul>
           <Pagination nPages={nPages}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}/>

@@ -44,24 +44,25 @@ const PostDelete = () => {
               width: '18rem',
             }}
           >
-            <CardTitle style={{ color: '#EEFBF5' }} tag="h3">
+            <CardTitle style={{ color: 'black' }} tag="h3">
               Are you sure you want to delete this post?
             </CardTitle>
             <CardSubtitle>
                 <br></br>
-              <h4 style={{ color: '#EEFBF5' }}>{post.title}</h4>
+              <h4 style={{ color: 'black' }}>{post.title}</h4>
             </CardSubtitle>
             <CardBody>
               <Button
-                style={{backgroundColor: "#445F58", color: "#EEFBF5"}}
+                style={{backgroundColor: "transparent", color: 'black'}}
                 onClick={(e) => {
                   handleDelete()
                 }}
               >
                 <FaCheck/>
               </Button>
+
               <Button
-                style={{backgroundColor: "#445F58", color: "#EEFBF5"}}
+                style={{backgroundColor: "transparent", color: 'black', marginLeft: "10px"}}
                 onClick={(e) => {
                   handleCancel()
                 }}

@@ -7,10 +7,10 @@ export default function WelcomeBack() {
       <h1 class="fw-light text-white m-0">Welcome back!</h1>
       <div class="btn-group my-5">
         <a href="/user/me" class="btn btn-outline-light" aria-current="page"><i class="fas fa-file-download me-2"></i> My Profile</a>
-        <a href="/user/me" class="btn btn-outline-light">My Posts <i class="fas fa-expand ms-2"></i></a>
+        <a href="posts/mine" class="btn btn-outline-light">My Posts <i class="fas fa-expand ms-2"></i></a>
       </div>
       <a href="/posts" class="text-decoration-none">
-        <h5 class="fw-light text-white m-0">— Let's get started —</h5>
+        <h5 class="fw-light text-white m-0">— Dive right in —</h5>
       </a>
     </div>
   </div>

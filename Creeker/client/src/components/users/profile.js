@@ -59,7 +59,7 @@ const UserProfile = ({ ProfileObject }) => {
         </div>
       </article> */}
 
-    <figure class="snip0057 red hover">
+    {/* <figure class="snip0057 red hover">
       <figcaption>
         <h2>
           {ProfileObject.firstName} <span>{ProfileObject.lastName}</span>
@@ -81,7 +81,17 @@ const UserProfile = ({ ProfileObject }) => {
       </div>
       <div class="position"> {ProfileObject.userType.name}</div>
     </figure>
-  
+   */}
+
+<div id="gradient"></div>
+<div id="card">
+  <img src={ProfileObject.imageLocation}/>
+  <h2>{ProfileObject.fullName}</h2>
+  <p>{ProfileObject.userType.name}</p>
+  <p>{ProfileObject.userName} </p>
+  <p>{ProfileObject.email}</p>
+  <p class="left bottom">{ProfileObject.createDateTime}</p>
+</div>
     </>
   )
 }

@@ -44,18 +44,17 @@ const TagEdit = () => {
             inverse
             className="text-center"
             style={{
-              marginTop: '1.5rem',
               backgroundColor: '#587D71',
-              width: '18rem',
+              width: '20rem',
+
             }}
           >
-            <CardTitle style={{ color: '#EEFBF5' }} tag="h3">
+            <CardBody>
+            <CardTitle style={{ color: 'black' }} tag="h3">
               Edit Tag
             </CardTitle>
-            <CardBody>
-              <Form>
                 <Input
-                  style={{ marginBottom: '10px', backgroundColor: '#EEFBF5' }}
+                  style={{ marginBottom: '10px'}}
                   type="text"
                   placeholder={Tag.name}
                   onChange={(e) => {
@@ -65,7 +64,7 @@ const TagEdit = () => {
                   }}
                 />
                 <Button
-                  style={{ backgroundColor: '#445F58', color: '#EEFBF5' }}
+                  style={{ backgroundColor: 'transparent', color: 'black' }}
                   onClick={(e) => {
                     Edit()
                   }}
@@ -73,14 +72,13 @@ const TagEdit = () => {
                   Save
                 </Button>
                 <Button
-                  style={{ backgroundColor: '#445F58', color: '#EEFBF5' }}
+                  style={{ backgroundColor: 'transparent', color: 'black', marginLeft: "10px" }}
                   onClick={(e) => {
                     Cancel()
                   }}
                 >
                   Cancel
                 </Button>
-              </Form>
             </CardBody>
           </Card>
         </div>

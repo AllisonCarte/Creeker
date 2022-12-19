@@ -15,10 +15,9 @@ import './posts.css'
 const Post = ({ PostObject }) => {
   const [tag, setTags] = useState()
   const { id } = useParams
-  const navigate = useNavigate()
   useEffect(() => {
     getAllTags(id).then(setTags)
-  })
+  }, [])
 
   {
     /* <div className='box'>
@@ -94,26 +93,18 @@ const Post = ({ PostObject }) => {
           ))}
           <h4> {PostObject.title}</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-            perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea
-            atque quidem!
+          {PostObject.content} 
           </p>
         </div>
         <div class="card__footer">
           <div class="user">
-              <img
-              id="userImg"
-              src="https://i.pravatar.cc/40?img=1"
-              alt="user__image"
-              class="user__image"
-              />
             <div class="user__info">
               <h5>{PostObject?.user?.userName}</h5>
               <small>
-                <Link to={`/posts/edit/${PostObject.id}`}>
+                <Link style={{color: "black"}} to={`/posts/edit/${PostObject.id}`}>
                   <FaRegEdit />
                 </Link>
-                <Link to={`/posts/delete/${PostObject.id}`}>
+                <Link style={{color: "black"}} to={`/posts/delete/${PostObject.id}`}>
                   <FaTrashAlt />
                 </Link>
               </small>

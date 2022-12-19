@@ -16,13 +16,14 @@ const TagList = () => {
 
   return (
     <>
-      <div className='app'>
-        <div className='grid'>
+      {/* <div className='app'>
+        <div className='grid'> */}
+      <div class="main-container">
+<div class="catCards">
           {Tags.map((t) => (
             <Tag key={t.id} tagObject={t} />
           ))}
-        </div>
-      </div>
+          </div></div>
     </>
   )
 }

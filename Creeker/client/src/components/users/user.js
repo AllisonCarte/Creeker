@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaRegEdit } from 'react-icons/fa'
+import { FaRegEdit, FaRegTrashAlt, FaTrashAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { Card, CardBody, CardLink, CardSubtitle, CardTitle } from 'reactstrap'
 import './users.css'
@@ -35,90 +35,44 @@ const User = ({ UserObject }) => {
 </div> */
   }
 
-  if (UserObject.userType.id == 1) {
-
     return (
       <>
-      <figure class="snip0057 red hover">
-        <figcaption>
-          <h2>
-            {UserObject.firstName} <span>{UserObject.lastName}</span>
-          </h2>
-          <p>
-          {UserObject.userName}
-          </p>
-          <div class="icons">
-          <a href={`/user/usertype/edit/${UserObject.id}`}>
-            <i> <FaRegEdit/> </i>
-          </a>
-          </div>
-        </figcaption>
-        <div class="image">
-        
+    <li>
+        <a href="" class="tagCard">
           <img
-            src="https://cdn.pixabay.com/photo/2021/11/19/15/21/christmas-6809682_960_720.png"
-            alt="sample4"
+            src={UserObject.imageLocation}
+            class="tagCard__image"
+            alt=""
           />
-        </div>
-        <div class="position"> {UserObject.userType.name}</div>
-      </figure>
+          <div class="tagCard__overlay">
+            <div class="tagCard__header">
+              <svg class="tagCard__arc" xmlns="http://www.w3.org/2000/svg">
+                <path />
+              </svg>
+              <div class="tagCard__header-text">
+              </div>
+                <h3 class="tagCard__title">{UserObject.userName}</h3>
+            </div>
+            <p class="tagCard__description">
+              {UserObject.fullName}
+              <br></br>
+              {UserObject.userType.name}
+              <br></br>
+              <CardLink
+                style={{ color: 'black', textDecoration: 'none' }}
+                href={`/user/edit/${UserObject.id}`}
+              >
+                <FaRegEdit />
+              </CardLink>
+            </p>
+          </div>
+        </a>
+      </li>
+      
     </>
+
   )
-} else if (UserObject.userType.id == 2) {
-  return (
-    <>
-    <figure class="snip0057 red hover">
-      <figcaption>
-        <h2>
-          {UserObject.firstName} <span>{UserObject.lastName}</span>
-        </h2>
-        <p>
-        {UserObject.userName}
-        </p>
-        <div class="icons">
-        <a href={`/user/usertype/edit/${UserObject.id}`}>
-            <i> <FaRegEdit/> </i>
-          </a>
-        </div>
-      </figcaption>
-      <div class="image">
-      
-        <img
-          src="https://cdn.pixabay.com/photo/2021/11/19/15/23/christmas-6809686_960_720.png"
-        />
-      </div>
-      <div class="position"> {UserObject.userType.name}</div>
-    </figure>
-  </>
-)
-} else {
-  return (
-    <>
-    <figure class="snip0057 red hover">
-      <figcaption>
-        <h2>
-          {UserObject.firstName} <span>{UserObject.lastName}</span>
-        </h2>
-        <p>
-        {UserObject.userName}
-        </p>
-        <div class="icons">
-          <a href={`/user/usertype/edit/${UserObject.id}`}>
-            <i> <FaRegEdit/> </i>
-          </a>
-        </div>
-      </figcaption>
-      <div class="image">
-      
-        <img
-          src="https://cdn.pixabay.com/photo/2022/12/02/01/17/snow-7630050_960_720.png"
-        />
-      </div>
-      <div class="position"> {UserObject.userType.name}</div>
-    </figure>
-  </>
-  
-    )
+
 }
-}
+
 export default User

@@ -16,13 +16,17 @@ const CategoryList = () => {
   return (
     <>
 
-<ul className='taco'>
+{/* <ul className='taco'> */}
+{/* <ul class="categoryCards"> */}
+<div class="main-container">
+<div class="catCards">
       {Categories.map((u) => (
         <Category key={u.id} categoryObject={u} />
         ))}
-
-        </ul>
-
+        </div>
+</div>
+        {/* </ul> */}
+{/* </ul> */}
     </>
   )
 }

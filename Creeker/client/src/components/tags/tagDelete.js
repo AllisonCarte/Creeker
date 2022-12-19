@@ -34,34 +34,29 @@ const TagDelete = () => {
             inverse
             className="text-center"
             style={{
-              marginTop: '1.5rem',
               backgroundColor: '#587D71',
-              width: '18rem',
+              width: '20rem',
             }}
           >
-            <CardTitle style={{ color: '#EEFBF5' }} tag="h3">
-              Are you sure you want to delete this tag?
-            </CardTitle>
-            <CardSubtitle>
-                <br></br>
-              <h4 style={{ color: '#EEFBF5' }}>{tags.name}</h4>
-            </CardSubtitle>
             <CardBody>
+            <CardTitle style={{ color: 'Black' }} tag="h3">
+              Are you sure you want to delete {tags.name}?
+            </CardTitle>
               <Button
-                style={{backgroundColor: "#445F58", color: "#EEFBF5"}}
+                style={{backgroundColor: "transparent", color: "black"}}
                 onClick={(e) => {
                   handleDelete()
                 }}
               >
-                <FaCheck/>
+                Confirm
               </Button>
               <Button
-                style={{backgroundColor: "#445F58", color: "#EEFBF5"}}
+                style={{backgroundColor: "transparent", color: "black", marginLeft: "10px"}}
                 onClick={(e) => {
                   handleCancel()
                 }}
               >
-                <FaTimes/>
+                Cancel
               </Button>
             </CardBody>
           </Card>

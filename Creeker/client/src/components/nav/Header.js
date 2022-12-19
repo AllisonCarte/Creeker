@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink as RRNavLink } from "react-router-dom";
+import { Link, NavLink as RRNavLink } from "react-router-dom";
 import { logout } from '../../modules/UserManager';
 import "./nav.css"
 import {
@@ -103,13 +103,17 @@ export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin 
                 </NavItem>
               </>
             }
+            <Nav navbar>
+              {isLoggedIn && 
             <Button style={{backgroundColor: "transparent", border: "none"}}
-          onClick={() => {
-            setOpen(true);
-          }}
-          >
+            onClick={() => {
+              setOpen(true);
+            }}
+            >
           <FaBars/>
         </Button>
+          }
+        </Nav>
             {!isLoggedIn &&
               <>
                
@@ -126,15 +130,15 @@ export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin 
           <OffcanvasHeader style={{color: "black"}} toggle={canvasToggle}>Options</OffcanvasHeader>
           <OffcanvasBody style={{width: "88px"}}>
             {menuItem.map((item, index) => (
-              <NavLink
+              <Link
                 style={{textDecoration: "none"}}
                 to={item.path}
                 key={index}
-                className="link"
+                class="link"
               >
                 <div className="link_icon" style={{color: "black"}}>{item.icon}</div>
                 <div className="link_text" style={{color: "black"}}>{item.name}</div>
-              </NavLink>
+              </Link>
                   ))}
           </OffcanvasBody>
         </Offcanvas>

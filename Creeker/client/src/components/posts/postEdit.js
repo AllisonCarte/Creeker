@@ -71,19 +71,19 @@ const PostEdit = () => {
             inverse
             className="text-center"
             style={{
-              marginTop: '1.5rem',
+              color: "black",
               backgroundColor: '#587D71',
-              width: '18rem',
+              
             }}
           >
-            <CardTitle style={{ color: '#EEFBF5' }} tag="h3">
+            <CardBody style={{color: "black"}}>
+            <CardTitle style={{color: "black"}} tag="h3">
               Edit Post
             </CardTitle>
-            <CardBody>
               <Form>
                 <Label htmlFor="post">Post</Label>
                 <Input
-                  style={{ marginBottom: '10px', backgroundColor: '#EEFBF5' }}
+                  style={{ marginBottom: '10px'}}
                   type="text"
                   placeholder={Post.title}
                   onChange={(e) => {
@@ -93,7 +93,7 @@ const PostEdit = () => {
                   }}
                 />
                 <Input
-                  style={{ marginBottom: '10px', backgroundColor: '#EEFBF5' }}
+                  style={{ marginBottom: '10px' }}
                   type="text"
                   placeholder={Post.content}
                   onChange={(e) => {
@@ -103,7 +103,7 @@ const PostEdit = () => {
                   }}
                 />
                    <Input
-                  style={{ marginBottom: '10px', backgroundColor: '#EEFBF5' }}
+                  style={{ marginBottom: '10px' }}
                   type="text"
                   placeholder={Post.imageLocation}
                   onChange={(e) => {
@@ -132,8 +132,8 @@ const PostEdit = () => {
                 <Button
                   style={{
                     marginTop: '1rem',
-                    backgroundColor: '#445F58',
-                    color: '#EEFBF5',
+                    backgroundColor: 'transparent',
+                    color: "black"
                   }}
                   onClick={(e) => {
                     Edit()
@@ -144,8 +144,9 @@ const PostEdit = () => {
                 <Button
                   style={{
                     marginTop: '1rem',
-                    backgroundColor: '#445F58',
-                    color: '#EEFBF5',
+                    backgroundColor: 'transparent',
+                    marginLeft: "10px",
+                    color: "black"
                   }}
                   onClick={(e) => {
                     Cancel()
