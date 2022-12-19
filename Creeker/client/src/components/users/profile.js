@@ -68,7 +68,7 @@ const UserProfile = ({ ProfileObject }) => {
         {ProfileObject.userName}
         </p>
         <div class="icons">
-          <a href={`/user/usertype/edit/${ProfileObject.id}`}>
+          <a href={`/user/edit/${ProfileObject.id}`}>
             <i> <FaRegEdit/> </i>
           </a>
         </div>

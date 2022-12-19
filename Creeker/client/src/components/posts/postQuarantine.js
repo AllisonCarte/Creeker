@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAllUnapprovedPosts } from '../../modules/PostManager'
 import Post from './post'
-
+import "./posts.css"
 const UnapprovedPostList = () => {
   const [Unapproved, setUnapproved] = useState([])
 
@@ -15,11 +15,13 @@ const UnapprovedPostList = () => {
 
   return (
     <>
-      <ul class="taco">
+       <div class="container">
+      {/* <ul class="taco"> */}
         {Unapproved.map((u) => (
           <Post key={u.id} PostObject={u} />
           ))}
-          </ul>
+          {/* </ul> */}
+          </div>
     </>
   )
 }

@@ -62,6 +62,7 @@ namespace Creeker.Repositories
                             Tags = new List<Tag>()
                         };
                         post.User.UserName = DbUtils.GetString(reader, "UserName");
+                        post.User.UserTypeId = DbUtils.GetInt(reader, "UserTypeId");
                         post.Category.Name = DbUtils.GetString(reader, "CategoryName");
                        
                         if (DbUtils.IsNotDbNull(reader, "TagId") && !post.Tags.Any(x => x.Id == DbUtils.GetNullableInt(reader, "TagId")))
@@ -226,6 +227,7 @@ namespace Creeker.Repositories
                             Tags = new List<Tag>()
                         };
                         post.User.UserName = DbUtils.GetString(reader, "UserName");
+                        post.User.UserTypeId = DbUtils.GetInt(reader, "UserTypeId");
                         post.Category.Name = DbUtils.GetString(reader, "CategoryName");
                         if (DbUtils.IsNotDbNull(reader, "TagId") && !post.Tags.Any(x => x.Id == DbUtils.GetNullableInt(reader, "TagId")))
                         {
@@ -266,13 +268,13 @@ namespace Creeker.Repositories
                             @IsApproved, @CategoryId, @UserId )";
                     cmd.Parameters.AddWithValue("@Title", post.Title);
                     cmd.Parameters.AddWithValue("@Content", post.Content);
-                    cmd.Parameters.AddWithValue("@ImageLocation", post.ImageLocation = "");
                     cmd.Parameters.AddWithValue("@CreateDateTime", DateTime.Now);
                     cmd.Parameters.AddWithValue("@PublishDateTime", DateTime.Now);
                     cmd.Parameters.AddWithValue("@IsApproved", post.IsApproved = false);
                     cmd.Parameters.AddWithValue("@CategoryId", post.CategoryId);
                     cmd.Parameters.AddWithValue("@UserId", post.UserId);
-
+                  
+                        cmd.Parameters.AddWithValue("@imageLocation", post.ImageLocation);
                     post.Id = (int)cmd.ExecuteScalar();
                 }
             }
@@ -297,10 +299,10 @@ namespace Creeker.Repositories
 
                     cmd.Parameters.AddWithValue("@title", post.Title);
                     cmd.Parameters.AddWithValue("@content", post.Content);
-                    cmd.Parameters.AddWithValue("@imageLocation", post.ImageLocation = "");
                     cmd.Parameters.AddWithValue("@categoryId", post.CategoryId);
                     cmd.Parameters.AddWithValue("@isApproved", post.IsApproved);
                     cmd.Parameters.AddWithValue("@id", post.Id);
+                        cmd.Parameters.AddWithValue("@imageLocation", post.ImageLocation);
 
                     cmd.ExecuteNonQuery();
                 }

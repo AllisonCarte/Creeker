@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../modules/UserManager";
-
+import "./register.css"
 export const Register = ({setIsLoggedIn}) => {
   // Create state variables for each field
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ export const Register = ({setIsLoggedIn}) => {
 
   return (
     <>
-    <h2>Register</h2>
+    {/* <h2>Register</h2>
       <form>
         <input
           type="text"
@@ -70,7 +70,23 @@ export const Register = ({setIsLoggedIn}) => {
         <button type="submit" onClick={registerNewUser}>
           Register
         </button>
-      </form>
+      </form> */}
+
+
+  <div className="m-5">
+    <form>      
+  <input name="email" type="text" class="feedback-input" placeholder="Email"  onChange={e => setEmail(e.target.value)} />
+  <input name="password" type="password" class="feedback-input" placeholder="Password" onChange={e => setPassword(e.target.value)} />   
+  <input name="firstName" type="text" class="feedback-input" placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />   
+  <input name="lastName" type="text" class="feedback-input" placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />   
+  <input name="userName" type="text" class="feedback-input" placeholder="User Name" onChange={e => setUserName(e.target.value)} />   
+  <input name="imageLocation" type="text" class="feedback-input" placeholder="Image" onChange={e => setImageLocation(e.target.value)} />   
+  
+  <input type="submit" value="SUBMIT" onClick={registerNewUser}/>
+</form >
+    </div>
+
+
     </>
   );
 };

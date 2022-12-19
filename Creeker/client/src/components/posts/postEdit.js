@@ -43,12 +43,16 @@ const PostEdit = () => {
       isApproved: Post.isApproved,
     }
     console.log(updatedPost)
-    editPost(updatedPost).then((e) => {
-      if (Post.isApproved) navigate('/posts')
-      else {
-        navigate(`/quarantine`)
-      }
-    })
+    if (!updatedPost.imageLocation == ""){
+      editPost(updatedPost).then((e) => {
+        if (Post.isApproved) navigate('/posts')
+        else {
+          navigate(`/quarantine`)
+        }
+      })
+    } else {
+      alert("Post requires an image")
+    }
   }
   
   const Cancel = () => {
@@ -98,6 +102,17 @@ const PostEdit = () => {
                     setPost(copy)
                   }}
                 />
+                   <Input
+                  style={{ marginBottom: '10px', backgroundColor: '#EEFBF5' }}
+                  type="text"
+                  placeholder={Post.imageLocation}
+                  onChange={(e) => {
+                    const copy = { ...Post }
+                    copy.imageLocation = e.target.value
+                    setPost(copy)
+                  }}
+                />
+                
                 <Label htmlFor="category">Category</Label>
                 <select
                   required

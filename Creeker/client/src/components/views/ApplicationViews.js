@@ -22,11 +22,12 @@ import UserDetails from "../users/userDetails";
 import UserList from "../users/userList";
 import UserEdit from "../users/userProfileEdit";
 import EditUserType from "../users/userTypeEdit";
+import WelcomeBack from "../Welcome";
 export default function ApplicationViews() {
 
   return (
     <Routes>
-      <Route path="/" element={<Hello />} />
+      <Route path="/" element={<WelcomeBack />} />
       <Route path="/register" element={<Register />} />
       <Route path="/users" element={<UserList/>} />
       <Route path="/user/:id" element={<PersonalProfile/>}/>

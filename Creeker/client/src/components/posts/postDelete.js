@@ -17,9 +17,13 @@ const PostDelete = () => {
   }, [])
 
   const handleDelete = (id) => {
-    deletePost(post.id).then((e) => {
-      navigate(`/posts`)
-    })
+    if (!post.category.length > 1) {
+      deletePost(post.id).then((e) => {
+        navigate(`/posts`)
+      })
+    } else {
+      alert("This post may not be deleted at this time.")
+    }
   }
 
   const handleCancel = () => {

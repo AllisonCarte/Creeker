@@ -6,11 +6,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #DEF7EB; */
-  background-image: url('https://pixabay.com/get/g26b9b86606b213d37a1b114f959b5391c3a25b1115f3f53916de1a030b26ab0e592c6a57d055b78695efdc52c2f255c7.png');
  background-size: cover;
  background-attachment: fixed;
  color: #EEFBF5;
+ background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+ background-size: 400% 400%;
+ animation: gradient 15s ease infinite;
+ height: 100vh;
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

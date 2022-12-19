@@ -18,9 +18,12 @@ const PersonalProfile = () => {
 
   return <>
    <>
+   <div className="app">
+        <div className="grid">
       {filteredUser.map((u) => (
         <UserProfile key={u.id} ProfileObject={u} />
       ))}
+    </div></div>
     </>
   
   </>
