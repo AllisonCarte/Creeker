@@ -24,7 +24,7 @@ const MyApprovedPosts = () => {
       position: "fixed",
       left: 0,
       right: 0,
-      top: "50%",
+      top: "45%",
       marginTop: "-0.5rem",
       textAlign: "center",
     }}>This page has yet to be implemented.</span>

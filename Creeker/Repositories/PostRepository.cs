@@ -58,7 +58,7 @@ namespace Creeker.Repositories
                             CreateDateTime = DbUtils.GetDateTime(reader, "CreateDateTime"),
                             PublishDateTime = (DateTime)DbUtils.GetNullableDateTime(reader, "PublishDateTime"),
                             IsApproved = reader.GetBoolean(reader.GetOrdinal("IsApproved")),
-                            CategoryId = DbUtils.GetInt(reader, "CategoryId"),
+                            CategoryId = DbUtils.GetNullableInt(reader, "CategoryId"),
                             UserId = DbUtils.GetInt(reader, "UserId"),
                             User = new User(),
                             Category = new Category(),
@@ -133,7 +133,7 @@ namespace Creeker.Repositories
                                 CreateDateTime = DbUtils.GetDateTime(reader, "CreateDateTime"),
                                 PublishDateTime = (DateTime)DbUtils.GetNullableDateTime(reader, "PublishDateTime"),
                                 IsApproved = reader.GetBoolean(reader.GetOrdinal("IsApproved")),
-                                CategoryId = DbUtils.GetInt(reader, "CategoryId"),
+                                CategoryId = DbUtils.GetNullableInt(reader, "CategoryId"),
                                 UserId = DbUtils.GetInt(reader, "UserId"),
                                 User = new User()
                                 {
@@ -196,7 +196,7 @@ namespace Creeker.Repositories
                               c.[Name] AS CategoryName,
                               u.FirstName, u.LastName, u.UserName, 
                               u.Email, u.CreateDateTime, u.ImageLocation,
-                              u.UserTypeId,  u.Id AS UserId
+                              u.UserTypeId,  u.Id AS UserId,
                               ut.[Name] AS UserTypeName,
                               pt.Id as PostTagId, pt.PostId as PostTagPostId, 
                               pt.TagId as PostTagTagId,
@@ -227,7 +227,7 @@ namespace Creeker.Repositories
                                 CreateDateTime = DbUtils.GetDateTime(reader, "CreateDateTime"),
                                 PublishDateTime = (DateTime)DbUtils.GetNullableDateTime(reader, "PublishDateTime"),
                                 IsApproved = reader.GetBoolean(reader.GetOrdinal("IsApproved")),
-                                CategoryId = DbUtils.GetInt(reader, "CategoryId"),
+                                CategoryId = DbUtils.GetNullableInt(reader, "CategoryId"),
                                 UserId = DbUtils.GetInt(reader, "UserId"),
                                 User = new User(),
                                 Category = new Category(),

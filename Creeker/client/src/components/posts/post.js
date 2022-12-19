@@ -104,9 +104,6 @@ const Post = ({ PostObject }) => {
                 <Link style={{color: "black"}} to={`/posts/edit/${PostObject.id}`}>
                   <FaRegEdit />
                 </Link>
-                <Link style={{color: "black"}} to={`/posts/delete/${PostObject.id}`}>
-                  <FaTrashAlt />
-                </Link>
               </small>
             </div>
           </div>

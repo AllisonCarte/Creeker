@@ -37,7 +37,8 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
                     </li>
                 ))}
                 <li className="page-item">
-                    <a className="page-link" 
+                    <a style={{color: "black"}}
+                    className="page-link" 
                         onClick={nextPage}
                         href='#'>
                         

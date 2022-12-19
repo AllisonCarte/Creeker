@@ -53,7 +53,7 @@ const User = ({ UserObject }) => {
               </div>
                 <h3 class="tagCard__title">{UserObject.userName}</h3>
             </div>
-            <p class="tagCard__description">
+            <p style={{color: "black"}} class="tagCard__description">
               {UserObject.fullName}
               <br></br>
               {UserObject.userType.name}

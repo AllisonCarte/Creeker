@@ -25,7 +25,6 @@ justify-content: space-around;
 body {
   margin: 0 auto;
   padding: 0;
-  background: #222;
 }
 
 .left {
@@ -47,11 +46,12 @@ body {
 
 #gradient {
   background: #999955;
-  background-image: linear-gradient(#DAB046 20%, #D73B25 20%, #D73B25 40%, #C71B25 40%, #C71B25 60%, #961A39 60%, #961A39 80%, #601035 80%);
+ background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   margin: 0 auto;
   margin-top: 100px;
   width: 100%;
   height: 150px;
+
 }
 
 #gradient:after {

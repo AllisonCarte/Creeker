@@ -10,7 +10,7 @@ export default function About() {
       top: "50%",
       marginTop: "-0.5rem",
       textAlign: "center",
-    }}>This is the about page for Campbells Creek Cares</span>
+    }}>This is a placeholder until we have the relevant information ready. Sorry for the wait. :)</span>
   </>
   );
 }

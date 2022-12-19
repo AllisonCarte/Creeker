@@ -9,6 +9,6 @@ export default function Contact() {
       top: "50%",
       marginTop: "-0.5rem",
       textAlign: "center",
-    }}>This is the contact page for Campbells Creek Cares</span>
+    }}>This is also a placeholder. Sadness. But here's something neat, all of the images in this app were AI-generated! Isn't that cool?</span>
   );
 }
