@@ -15,7 +15,7 @@ import './posts.css'
 const Post = ({ PostObject }) => {
   const [tag, setTags] = useState()
   const { id } = useParams
-
+  const navigate = useNavigate()
   useEffect(() => {
     getAllTags(id).then(setTags)
   })
