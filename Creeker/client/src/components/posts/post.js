@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FaRegEdit, FaRegTrashAlt, FaTrashAlt } from 'react-icons/fa'
+import { FaRegEdit, FaTrashAlt } from 'react-icons/fa'
 import { Link, useParams } from 'react-router-dom'
 import {
   Button,
@@ -103,6 +103,9 @@ const Post = ({ PostObject }) => {
               <small>
                 <Link style={{color: "black"}} to={`/posts/edit/${PostObject.id}`}>
                   <FaRegEdit />
+                </Link>
+                <Link style={{color: "black"}} to={`/posts/delete/${PostObject.id}`}>
+                  <FaTrashAlt />
                 </Link>
               </small>
             </div>
