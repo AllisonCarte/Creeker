@@ -8,6 +8,7 @@ import CategoryList from "../categories/categoryList";
 import Hello from "../Hello";
 import About from "../Home/About";
 import Contact from "../Home/Contact";
+import MyApprovedPosts from "../posts/myPosts";
 import PostDelete from "../posts/postDelete";
 import PostEdit from "../posts/postEdit";
 import PostForm from "../posts/postForm";
@@ -24,11 +25,12 @@ import UserDetails from "../users/userDetails";
 import UserList from "../users/userList";
 import UserEdit from "../users/userProfileEdit";
 import EditUserType from "../users/userTypeEdit";
+import WelcomeBack from "../Welcome";
 export default function ApplicationViews() {
 
   return (
     <Routes>
-      <Route path="/" element={<Hello />} />
+      <Route path="/" element={<WelcomeBack />} />
       <Route path="/register" element={<Register />} />
       <Route path="/users" element={<UserList/>} />
       <Route path="/user/:id" element={<PersonalProfile/>}/>
@@ -46,6 +48,7 @@ export default function ApplicationViews() {
       <Route path="/quarantine" element={<UnapprovedPostList/>}/>
       <Route path="/postTag/remove/:id" element={<PostTagDelete/>}/>
       <Route path ="/posts/:id/tags" element={<PostTags />} />
+      <Route path="/posts/mine" element={<MyApprovedPosts/>}/>
 
       <Route path="/categories" element={<CategoryList/>}/>
       <Route path="/categories/create" element={<CategoryForm/>}/>

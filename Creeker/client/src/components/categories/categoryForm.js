@@ -26,7 +26,9 @@ const CategoryForm = () => {
       navigate('/categories')
     })
   }
-
+  const Cancel = () => {
+    navigate('/categories')
+  }
   return (
     <>
       <article style={{ display: 'flex', justifyContent: 'center' }}>
@@ -36,16 +38,14 @@ const CategoryForm = () => {
             inverse
             className="text-center"
             style={{
-              marginTop: '1.5rem',
               backgroundColor: '#587D71',
-              width: '18rem',
             }}
           >
-            <CardTitle style={{color: "#EEFBF5"}} tag="h3">Create Category</CardTitle>
             <CardBody>
+            <CardTitle style={{color: "black"}} tag="h3">Create Category</CardTitle>
               <Form>
                   <Input
-                    style={{ marginBottom: '10px', backgroundColor: "#EEFBF5"  }}
+                    style={{ marginBottom: '10px'  }}
                     type="text"
                     placeholder="Name"
                     onChange={(event) => {
@@ -53,7 +53,9 @@ const CategoryForm = () => {
                     }}
                   />
               </Form>
-              <Button style={{backgroundColor: "#445F58", color: "#EEFBF5"}} onClick={saveCategory}>Save</Button>
+              <Button style={{backgroundColor: "transparent", color: "black"}} onClick={saveCategory}>Save</Button>
+              <Button style={{backgroundColor: "transparent", color: "black", marginLeft: "10px"}} onClick={Cancel}>Cancel</Button>
+
             </CardBody>
           </Card>
         </div>

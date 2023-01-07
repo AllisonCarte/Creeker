@@ -34,34 +34,33 @@ const CategoryDelete = () => {
             inverse
             className="text-center"
             style={{
-              marginTop: '1.5rem',
               backgroundColor: '#587D71',
-              width: '18rem',
+              width: "20rem"
             }}
           >
-            <CardTitle style={{ color: '#EEFBF5' }} tag="h3">
+            <CardBody>
+            <CardTitle style={{ color: 'black' }} tag="h3">
               Are you sure you want to delete this category?
             </CardTitle>
             <CardSubtitle>
                 <br></br>
-              <h4 style={{ color: '#EEFBF5' }}>{category.name}</h4>
+              <h4 style={{ color: 'black' }}>{category.name}</h4>
             </CardSubtitle>
-            <CardBody>
               <Button
-                style={{backgroundColor: "#445F58", color: "#EEFBF5"}}
+                style={{backgroundColor: "transparent", color: "black"}}
                 onClick={(e) => {
                   handleDelete()
                 }}
               >
-                <FaCheck/>
+                Confirm
               </Button>
               <Button
-                style={{backgroundColor: "#445F58", color: "#EEFBF5"}}
+                style={{backgroundColor: "transparent", color: "black", marginLeft: "10px"}}
                 onClick={(e) => {
                   handleCancel()
                 }}
               >
-                <FaTimes/>
+                Cancel
               </Button>
             </CardBody>
           </Card>

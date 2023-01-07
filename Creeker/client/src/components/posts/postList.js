@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAllApprovedPosts } from '../../modules/PostManager'
 import Post from './post'
-import Canvas from './postOffcanvas'
-
+import "./posts.css"
 const ApprovedPostList = () => {
   const [Approved, setApproved] = useState([])
 
@@ -16,12 +15,14 @@ const ApprovedPostList = () => {
 
   return (
     <>
-      <Canvas/>
-      <div>
+       <div class="container">
+
+      {/* <ul className='taco'> */}
         {Approved.map((u) => (
           <Post key={u.id} PostObject={u} />
-        ))}
-      </div>
+          ))}
+       {/* </ul> */}
+        </div>
     </>
   )
 }

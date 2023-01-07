@@ -18,9 +18,21 @@ const TagForm = () => {
       navigate('/tags')
     })
   }
-
+  const Cancel = () => {
+    navigate('/tags')
+  }
   return (
     <>
+      {/* <div class="catCard card-1">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit"><i class="fas fa-times"></i></p>
+      <h2 class="card__title">{tagObject.name}</h2>
+      <p class="card__apply">
+        <a class="card__link" href={`/tags/edit/${tagObject.id}`}> <i class="card_icon"><FaRegEdit/></i></a>
+        <a class="card__link" href={`/tags/delete/${tagObject.id}`}> <i class="card_icon"><FaTrashAlt/></i></a>
+
+      </p>
+    </div> */}
       <article style={{ display: 'flex', justifyContent: 'center' }}>
         <div>
           <Card
@@ -28,18 +40,16 @@ const TagForm = () => {
             inverse
             className="text-center"
             style={{
-              marginTop: '1.5rem',
               backgroundColor: '#587D71',
-              width: '18rem',
             }}
           >
-            <CardTitle style={{ color: '#EEFBF5' }} tag="h3">
-              Create Tag
-            </CardTitle>
             <CardBody>
+              <CardTitle style={{ color: 'black' }} tag="h3">
+                Create Tag
+              </CardTitle>
               <Form>
                 <Input
-                  style={{ marginBottom: '10px', backgroundColor: '#EEFBF5' }}
+                  style={{ marginBottom: '10px' }}
                   type="text"
                   placeholder="Name"
                   onChange={(event) => {
@@ -48,10 +58,16 @@ const TagForm = () => {
                 />
               </Form>
               <Button
-                style={{ backgroundColor: '#445F58', color: '#EEFBF5' }}
+                style={{ backgroundColor: 'transparent', color: 'black' }}
                 onClick={saveTag}
               >
                 Save
+              </Button>
+              <Button
+                style={{ backgroundColor: 'transparent', color: 'black', marginLeft: "10px" }}
+                onClick={Cancel}
+              >
+                Cancel
               </Button>
             </CardBody>
           </Card>

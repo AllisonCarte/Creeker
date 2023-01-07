@@ -10,13 +10,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(true);
   const localUser = localStorage.getItem('user')
   const userObject = JSON.parse(localUser)
- 
-  useEffect(()=>{
-  if(userObject.UserTypeId == 1){
-    setIsAdmin(false)
     
-  }
-},[isAdmin])
 
 
   useEffect(()=>{
@@ -33,7 +27,7 @@ function App() {
         <ApplicationViews  />
         :
         <Authorize setIsLoggedIn={setIsLoggedIn}/>
-        }
+      }
 
     </Router>
   );

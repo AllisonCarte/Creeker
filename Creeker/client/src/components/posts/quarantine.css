@@ -1,0 +1,30 @@
+/* #taco{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+       
+} */
+
+/* .app{
+
+}
+.grid{
+min-height: 100%;
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: space-around;
+}
+
+.box{
+    background-color: #567968;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    height: 200px;
+    max-height: 35vh;
+   box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.3);
+}
+
+.grid > div{
+    flex-basis: calc(20% - 40px);
+} */

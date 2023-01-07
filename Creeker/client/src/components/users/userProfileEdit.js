@@ -18,7 +18,8 @@ const UserEdit = () => {
   const [User, setUser] = useState({})
   const navigate = useNavigate()
   const { id } = useParams()
-
+  const localUser = localStorage.getItem('user')
+  const userObject = JSON.parse(localUser)
   useEffect(() => {
     getSingleUser(id).then((c) => {
       setUser(c)
@@ -40,14 +41,25 @@ const UserEdit = () => {
       imageLocation: User.imageLocation
     }
     console.log(updatedUser)
-    editUser(updatedUser).then((e) => {
+    if (userObject.userTypeId === 1) {
+
+      editUser(updatedUser).then((e) => {
         navigate(`/user/me`)
-      
-    })
+        
+      })
+    } else {
+      editUser(updatedUser).then((e) => {
+        navigate(`/users`)
+      })
+    }
   }
   
   const Cancel = () => {
+    if (userObject.userTypeId === 1) {
       navigate(`/user/me`)
+    } else {
+      navigate(`/users`)
+    }
     
   }
 
@@ -65,14 +77,13 @@ const UserEdit = () => {
               width: '18rem',
             }}
           >
-            <CardTitle style={{ color: '#EEFBF5' }} tag="h3">
-              Edit Post
-            </CardTitle>
             <CardBody>
-              <Form>
-                <Label htmlFor="post">User</Label>
+            <CardTitle style={{ color: 'black' }} tag="h3">
+              Edit User Profile
+            </CardTitle>
+                <Label style={{ color: 'black' }} htmlFor="post">User</Label>
                 <Input
-                  style={{ marginBottom: '10px', backgroundColor: '#EEFBF5' }}
+                  style={{ marginBottom: '10px' }}
                   type="text"
                   placeholder={User.firstName}
                   onChange={(e) => {
@@ -82,7 +93,7 @@ const UserEdit = () => {
                   }}
                 />
                 <Input
-                  style={{ marginBottom: '10px', backgroundColor: '#EEFBF5' }}
+                  style={{ marginBottom: '10px' }}
                   type="text"
                   placeholder={User.lastName}
                   onChange={(e) => {
@@ -92,7 +103,7 @@ const UserEdit = () => {
                   }}
                 />
                  <Input
-                  style={{ marginBottom: '10px', backgroundColor: '#EEFBF5' }}
+                  style={{ marginBottom: '10px' }}
                   type="text"
                   placeholder={User.email}
                   onChange={(e) => {
@@ -101,11 +112,21 @@ const UserEdit = () => {
                     setUser(copy)
                   }}
                 />
+                 <Input
+                  style={{ marginBottom: '10px' }}
+                  type="text"
+                  placeholder={User.imageLocation}
+                  onChange={(e) => {
+                    const copy = { ...User }
+                    copy.imageLocation = e.target.value
+                    setUser(copy)
+                  }}
+                />
                 <Button
                   style={{
                     marginTop: '1rem',
-                    backgroundColor: '#445F58',
-                    color: '#EEFBF5',
+                    backgroundColor: 'transparent',
+                    color: 'black',
                   }}
                   onClick={(e) => {
                     Edit()
@@ -116,8 +137,9 @@ const UserEdit = () => {
                 <Button
                   style={{
                     marginTop: '1rem',
-                    backgroundColor: '#445F58',
-                    color: '#EEFBF5',
+                    backgroundColor: 'transparent',
+                    color: 'black',
+                    marginLeft: "10px"
                   }}
                   onClick={(e) => {
                     Cancel()
@@ -125,7 +147,6 @@ const UserEdit = () => {
                 >
                   Cancel
                 </Button>
-              </Form>
             </CardBody>
           </Card>
         </div>

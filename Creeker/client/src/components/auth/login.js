@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../modules/UserManager";
-
+import "./login.css"
 
 export const Login = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
@@ -24,11 +24,7 @@ export const Login = ({ setIsLoggedIn }) => {
           alert("Invalid email or password")
         }
       })
-  };
-
-  return (
-    <div className="m-5">
-      <Form onSubmit={loginSubmit}>
+      {/* <Form onSubmit={loginSubmit}>
         <fieldset>
           <FormGroup>
             <Label for="email">Email</Label>
@@ -45,7 +41,16 @@ export const Login = ({ setIsLoggedIn }) => {
             Not registered? <Link to="/register">Register</Link>
           </em>
         </fieldset>
-      </Form>
+      </Form> */}
+  };
+
+  return (
+    <div className="m-5">
+    <form onSubmit={loginSubmit}>      
+  <input name="email" type="text" class="feedback-input" placeholder="Email"  onChange={e => setEmail(e.target.value)} />
+  <input name="password" type="password" class="feedback-input" placeholder="Password" onChange={e => setPassword(e.target.value)} />   
+  <input type="submit" value="SUBMIT"/>
+</form >
     </div>
   );
 }

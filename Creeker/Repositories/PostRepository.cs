@@ -25,7 +25,7 @@ namespace Creeker.Repositories
                               p.CreateDateTime, p.PublishDateTime, p.IsApproved,
                               p.CategoryId, p.UserId,
                               c.[Name] AS CategoryName,
-                              u.FirstName, u.LastName, u.UserName, 
+                              u.FirstName, u.LastName, u.UserName, u.Id AS UserId, 
                               u.Email, u.CreateDateTime, u.ImageLocation,
                               u.UserTypeId, 
                               ut.[Name] AS UserTypeName,
@@ -58,13 +58,14 @@ namespace Creeker.Repositories
                             CreateDateTime = DbUtils.GetDateTime(reader, "CreateDateTime"),
                             PublishDateTime = (DateTime)DbUtils.GetNullableDateTime(reader, "PublishDateTime"),
                             IsApproved = reader.GetBoolean(reader.GetOrdinal("IsApproved")),
-                            CategoryId = DbUtils.GetInt(reader, "CategoryId"),
+                            CategoryId = DbUtils.GetNullableInt(reader, "CategoryId"),
                             UserId = DbUtils.GetInt(reader, "UserId"),
                             User = new User(),
                             Category = new Category(),
                             Tags = new List<Tag>()
                         };
                         post.User.UserName = DbUtils.GetString(reader, "UserName");
+                            post.User.Id = DbUtils.GetInt(reader, "UserId");
                         post.Category.Name = DbUtils.GetString(reader, "CategoryName");
                        
                         posts.Add(post);
@@ -132,7 +133,7 @@ namespace Creeker.Repositories
                                 CreateDateTime = DbUtils.GetDateTime(reader, "CreateDateTime"),
                                 PublishDateTime = (DateTime)DbUtils.GetNullableDateTime(reader, "PublishDateTime"),
                                 IsApproved = reader.GetBoolean(reader.GetOrdinal("IsApproved")),
-                                CategoryId = DbUtils.GetInt(reader, "CategoryId"),
+                                CategoryId = DbUtils.GetNullableInt(reader, "CategoryId"),
                                 UserId = DbUtils.GetInt(reader, "UserId"),
                                 User = new User()
                                 {
@@ -195,7 +196,7 @@ namespace Creeker.Repositories
                               c.[Name] AS CategoryName,
                               u.FirstName, u.LastName, u.UserName, 
                               u.Email, u.CreateDateTime, u.ImageLocation,
-                              u.UserTypeId, 
+                              u.UserTypeId,  u.Id AS UserId,
                               ut.[Name] AS UserTypeName,
                               pt.Id as PostTagId, pt.PostId as PostTagPostId, 
                               pt.TagId as PostTagTagId,
@@ -226,13 +227,14 @@ namespace Creeker.Repositories
                                 CreateDateTime = DbUtils.GetDateTime(reader, "CreateDateTime"),
                                 PublishDateTime = (DateTime)DbUtils.GetNullableDateTime(reader, "PublishDateTime"),
                                 IsApproved = reader.GetBoolean(reader.GetOrdinal("IsApproved")),
-                                CategoryId = DbUtils.GetInt(reader, "CategoryId"),
+                                CategoryId = DbUtils.GetNullableInt(reader, "CategoryId"),
                                 UserId = DbUtils.GetInt(reader, "UserId"),
                                 User = new User(),
                                 Category = new Category(),
                                 Tags = new List<Tag>()
                             };
                             post.User.UserName = DbUtils.GetString(reader, "UserName");
+                            post.User.Id = DbUtils.GetInt(reader, "UserId");
                             post.Category.Name = DbUtils.GetString(reader, "CategoryName");
 
                             posts.Add(post);
@@ -272,7 +274,7 @@ namespace Creeker.Repositories
                             @IsApproved, @CategoryId, @UserId )";
                     cmd.Parameters.AddWithValue("@Title", post.Title);
                     cmd.Parameters.AddWithValue("@Content", post.Content);
-                    cmd.Parameters.AddWithValue("@ImageLocation", post.ImageLocation = "");
+                    cmd.Parameters.AddWithValue("@ImageLocation", post.ImageLocation);
                     cmd.Parameters.AddWithValue("@CreateDateTime", DateTime.Now);
                     cmd.Parameters.AddWithValue("@PublishDateTime", DateTime.Now);
                     cmd.Parameters.AddWithValue("@IsApproved", post.IsApproved = false);
@@ -303,7 +305,7 @@ namespace Creeker.Repositories
 
                     cmd.Parameters.AddWithValue("@title", post.Title);
                     cmd.Parameters.AddWithValue("@content", post.Content);
-                    cmd.Parameters.AddWithValue("@imageLocation", post.ImageLocation = "");
+                    cmd.Parameters.AddWithValue("@imageLocation", post.ImageLocation);
                     cmd.Parameters.AddWithValue("@categoryId", post.CategoryId);
                     cmd.Parameters.AddWithValue("@isApproved", post.IsApproved);
                     cmd.Parameters.AddWithValue("@id", post.Id);
