@@ -15,7 +15,9 @@
     color: #EEFBF5;
 
 }
-
+.link_text{
+    margin-bottom: 10px;
+}
 .main {
     margin: 0 auto;
     display: block;

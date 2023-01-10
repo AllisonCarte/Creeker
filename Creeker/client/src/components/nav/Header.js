@@ -19,7 +19,7 @@ import {
   Button,
   OffcanvasBody
 } from 'reactstrap';
-import { FaBars, FaFeather } from 'react-icons/fa';
+import { FaBars, FaFeather, FaTag } from 'react-icons/fa';
 
 export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin }, args) {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,12 +29,12 @@ export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin 
   const menuItem = [
     {
       path: '/categories/create',
-      name: 'New Category',
-      icon: <FaFeather />,
+      name: 'Category',
+      icon: <FaTag />,
     },
     {
       path: '/posts/create',
-      name: 'New Post',
+      name: 'Post',
       icon: <FaFeather />,
     }
     // {

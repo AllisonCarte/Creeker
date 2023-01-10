@@ -45,8 +45,7 @@ const PostForm = () => {
 
     addPost(newPost)
       .then((r) => r.json())
-      .then(window.alert('Your post is under review'))
-      .then(navigate(`/posts`))
+      .then(navigate(`/quarantine`))
   }
 
   const handleCancel = () => {
