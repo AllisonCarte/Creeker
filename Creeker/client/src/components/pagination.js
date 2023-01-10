@@ -17,7 +17,9 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
         <nav>
             <ul className='pagination justify-content-center'>
                 <li className="page-item">
-                    <a className="page-link" 
+                    <a 
+                     style={{color: "black", backgroundColor: "transparent"}}
+                    className="page-link" 
                         onClick={prevPage} 
                         href='#'>
                         
@@ -29,7 +31,9 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
                         className= {`page-item ${currentPage == pgNumber ? 'active' : ''} `} >
 
                         <a onClick={() => setCurrentPage(pgNumber)}  
-                            className='page-link' 
+                            style={{color: "black", backgroundColor: "transparent"}}
+                           
+                           className='page-link' 
                             href='#'>
                             
                             {pgNumber}
@@ -37,7 +41,7 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
                     </li>
                 ))}
                 <li className="page-item">
-                    <a style={{color: "black"}}
+                    <a  style={{color: "black", backgroundColor: "transparent"}}
                     className="page-link" 
                         onClick={nextPage}
                         href='#'>

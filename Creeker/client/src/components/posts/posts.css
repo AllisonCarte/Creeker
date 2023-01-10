@@ -87,6 +87,7 @@ text-overflow:clip;
   max-width: 1200px;
   margin-block: 2rem;
   gap: 2rem;
+  
 }
 
 #userImg {
@@ -183,4 +184,8 @@ background: linear-gradient(to bottom, #ef473a, #cb2d3e);
 .user__info > small {
   color:#000000
 
+}
+
+#postcontainerid {
+  margin-bottom: 6%;
 }

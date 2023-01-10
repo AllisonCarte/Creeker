@@ -1,3 +1,4 @@
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import { Route, Routes} from "react-router-dom";
 import { Register } from "../auth/register";
@@ -28,6 +29,8 @@ import EditUserType from "../users/userTypeEdit";
 import WelcomeBack from "../Welcome";
 export default function ApplicationViews() {
 
+
+ 
   return (
     <Routes>
       <Route path="/" element={<WelcomeBack />} />

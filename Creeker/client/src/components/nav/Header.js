@@ -36,12 +36,12 @@ export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin 
       path: '/posts/create',
       name: 'New Post',
       icon: <FaFeather />,
-    },
-    {
-      path: '/tags/create',
-      name: 'New Tag',
-      icon: <FaFeather />,
-    },
+    }
+    // {
+    //   path: '/tags/create',
+    //   name: 'New Tag',
+    //   icon: <FaFeather />,
+    // },
   
   ]
 
@@ -61,7 +61,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin 
             }
             
              { /* When isLoggedIn === true, we will render the Home link */}
-            {isLoggedIn &&
+            {/* {isLoggedIn &&
               <NavItem>
                  <NavLink style={{color: '#EEFBF5'}}tag={RRNavLink} to="/about">About</NavLink>
               </NavItem>
@@ -71,7 +71,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin 
               <NavItem>
                  <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/contact">Contact</NavLink>
               </NavItem>
-            }
+            } */}
                     {isLoggedIn &&
                      <NavItem>
                         <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/posts">Posts</NavLink>
@@ -83,7 +83,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin 
                       Admin
                     </DropdownToggle>
                     <DropdownMenu end style={{ backgroundColor: 'transparent', width: "2px"}}>
-                     <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/tags">Tags</NavLink></DropdownItem>
+                     {/* <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/tags">Tags</NavLink></DropdownItem> */}
                       <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/users">Profiles</NavLink></DropdownItem>
                       <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/categories">Categories</NavLink></DropdownItem>
                       <DropdownItem> <NavLink style={{color: '#EEFBF5'}} tag={RRNavLink} to="/quarantine">Quarantine</NavLink></DropdownItem>
@@ -136,7 +136,6 @@ export default function Header({ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin 
                 key={index}
                 class="link"
               >
-                <div className="link_icon" style={{color: "black"}}>{item.icon}</div>
                 <div className="link_text" style={{color: "black"}}>{item.name}</div>
               </Link>
                   ))}
